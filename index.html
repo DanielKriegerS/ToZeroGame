@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo dos Números</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+</head>
+<body>
+    <div id="header">
+       <h1 id="title">Jogo dos Números</h1>
+    </div>
+
+    <nav class="contents" id="navigation">
+        <a class="links" href="main-content">Jogo</a>
+        <a class="links" href="info">Instruções</a>
+    </nav>
+
+    <div class="contents" id="main-content">
+        <div class="contents" id="game-content">
+            <div class="contents" id="random-number">
+                <h2>Números gerados: </h2>
+                <div id="numbers">
+                    <button class="random-numbers"></button>
+                    <button class="random-numbers"></button>
+                    <button class="random-numbers"></button>
+                </div>
+            </div>
+
+            <div class="contents" id="selection">
+                <h2>Seleção:</h2>
+                <div id="selected-content">
+                    <span class="selected-numbers"></span>
+                    <span class="selected-operation"></span>
+                    <span class="selected-numbers"></span>
+                    <span id="result"> = </span>
+                </div>
+            </div>
+
+            <div>
+                <button id="execute-operation">EFETUAR</button>
+                <button id="cancel-operation">LIMPAR</button>
+                <button id="restart-game">RECOMEÇAR</button>
+            </div>
+        </div>
+
+        <div class="contents" id="operations">
+            <h1>OPERAÇÕES</h1>
+            <button class="op-button"> + </button>
+            <button class="op-button"> - </button>
+            <button class="op-button"> * </button>
+            <button class="op-button"> / </button>
+            <button class="op-button"> x </button>
+        </div>
+   </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
