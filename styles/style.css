@@ -9,16 +9,19 @@
     border: unset;
 }
 
+
 /*/
     definições de caixas
 */
 
 body {
     background-color: rgba(100, 40, 30, .8);
+    padding: 0;
+    height: 90vh;
+    width: 100vb;
 }
 
 #header {
-    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -31,33 +34,31 @@ body {
 
 #main-content {
     justify-content: right;
+    padding: 2em 2em 2em 0;
+    
 }
 
 .contents {
-    display: flex;
     border: .1em solid;
     margin-top: 1em;
     padding: 1em;
-    max-height: 60%;
+    max-height: 80%;
 }
 
 #game-content {
-    flex-direction: column;
     margin-right: 2em;
     width: 50%;
 }
 
 #operations {
-    flex-direction: column;
     width: 20%;
     align-items: center;
 }
 
 #random-number, #selection {
-    flex-direction: column;
-    max-width: 50%;
     padding-top: 0;
 }
+
 
 /*/
     Definições de elementos
@@ -66,6 +67,7 @@ body {
 .links {
     margin-right: 1em;
     font-weight: 600;
+    color:  rgba(198, 199, 20, .7);
 }
 
 .op-button {
@@ -103,4 +105,9 @@ body {
     background-color: rgba(219, 148, 7, 0.8);
     color: rgba(59, 45, 3, 0.5);
     cursor: pointer;
+}
+
+/* Media query para dispositivos menores que 768px */
+@media screen and (max-width: 768px) {
+
 }
