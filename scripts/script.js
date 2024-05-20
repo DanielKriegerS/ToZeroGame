@@ -18,12 +18,12 @@ function randomNumber() {
     return Math.floor(Math.random() * 9) + 1;
 }
 
-
 // insere números gerados na tela
 function initializeNumbers() {
     randomNumbers.forEach(button => {
         button.textContent = randomNumber();
         randomNumbersValues.push(button.textContent);
+        localStorage.setItem('random-numbers', JSON.stringify(randomNumbersValues));
         button.addEventListener('click', function() {
             addToSelection(button.textContent);
             updateResult();
