@@ -6,6 +6,7 @@ const selectedNumbers = document.querySelectorAll('.selected-numbers');
 const selectedOperation = document.querySelector('.selected-operation');
 const operations = document.querySelectorAll('.op-button');
 const resultSpan = document.getElementById('result');
+const numbersHeader = document.getElementById('numbers-header');
 document.getElementById('cancel-operation').addEventListener('click', clear);
 document.getElementById('execute-operation').addEventListener('click', executeOperation);
 document.getElementById('restart-game').addEventListener('click', restartGame);
@@ -13,9 +14,16 @@ document.getElementById('restart-game').addEventListener('click', restartGame);
 // variáveis globais                                                            //
 let selectedNumbersValues = [];
 let randomNumbersValues = [];
+let firstNumbers = [];
+// 1 - let staticNumber = 0;
+let headerOp = 1;
+
 
 // fábrica de números aleatórios entre 1 e 9                                    //
 function randomNumber() {
+    // 1 - modo estatico removido para testes. Se tudo OK, remover permanente.
+    //return staticNumber +1;
+    
     return Math.floor(Math.random() * 9) + 1;
 }
 
@@ -84,12 +92,20 @@ function replaceSelectedNumbers(digits) {
     for(let i = 0; i < randomNumbers.length; i++) {
         if (randomNumbers[i].textContent === '') {
             randomNumbers[i].textContent = digits[replaces];
+            randomNumbersValues[i] = randomNumbers[i].textContent;
             replaces++;
         }
     }
-
+    changeHeader(2);
     clearFields();
     checkEndGame();
+}
+
+// Altera o valor do header
+function changeHeader(operation) {
+    headerOp = operation;
+    initializeHeader();
+    return;
 }
 
 
@@ -118,11 +134,12 @@ function validateOperation() {
 //*                     EFETUA SELEÇÃO DE ELEMENTOS                            *//
 //*                                                                            *//
 // Adiciona número à seleção                                                    //
-function addToSelection(value) {
-    if (selectedNumbersValues.length < 2) {
+function addToSelection(value, index) {
+    if (selectedNumbersValues.length < 2 && randomNumbersValues[index] !== 0
+                                         && randomNumbersValues[index] !== "") {
         selectedNumbersValues.push(value);
         updateSelectedNumbersDisplay();
-        cleanRandom();
+        cleanRandom(index);
         return;
     }
 }
@@ -188,10 +205,12 @@ function checkEndGame() {
         case 1:
             window.alert("Parabéns, você venceu!");
             initializeSystem();
+            changeHeader(1);
             break;
         case 2:
             window.alert("Que pena, foi por pouco!");
             initializeSystem();
+            changeHeader(1);
             break;
         default:
             return;
@@ -202,7 +221,9 @@ function checkEndGame() {
 function restartGame() {
     let i = 0;
     randomNumbers.forEach(button => {
-        button.textContent = randomNumbersValues[i];
+        button.textContent = firstNumbers[i];
+        randomNumbersValues[i] = firstNumbers[i];
+        changeHeader(1);
         clearFields();
         i++;
     });
@@ -223,17 +244,23 @@ function clearFields() {
 }
 
 // Limpeza do valor selecionado
-function cleanRandom() {
-    let occurs = 0;
-    randomNumbers.forEach(span => {
-        if (selectedNumbersValues.includes(span.textContent) && occurs < 1) {
-            span.textContent = '';
-            occurs++;
+function cleanRandom(index) {
+    for(let i = 0; i < randomNumbers.length; i++) {
+        if(randomNumbersValues[i] !== 0 && i === index){
+            randomNumbers[i].textContent = '';
+            randomNumbersValues[i] = 0;
             return;
         }
-    });
+    }
+
 }
 
+// Reseta os números aleatórios sempre antes de adicionar novos
+function resetNumbers() {
+    for (let i = 0; i < randomNumbersValues.length; i++){
+        randomNumbersValues[i] = 0;
+    }
+}
 // Limpeza de campos pelo botão de limpar
 function clear() {
     returnSelecteds();
@@ -256,10 +283,16 @@ function clearFields() {
 // *                                                                            *//   
 // gera números iniciais com base na quantia de números que devem haver na tela  //
 function generateNumbers() {
-    randomNumbersValues = []; 
-    randomNumbers.forEach(element => {
-        randomNumbersValues.push(randomNumber()); 
-    });
+    resetNumbers();
+    for (let i = 0; i < randomNumbers.length; i++) {
+        if (randomNumbersValues[i] === 0) {
+            randomNumbersValues[i] = randomNumber();
+            firstNumbers[i] = randomNumbersValues[i];
+        } else {
+            randomNumbersValues.push(randomNumber()); 
+            firstNumbers.push(randomNumbersValues[i]);
+        }
+    }
     return randomNumbersValues;
 }
 
@@ -272,15 +305,17 @@ function displayInitialNumbers() {
     });
 }
 
-// inicializa os números                                                        //
+// inicializa os números
 function initializeNumbers(){
-    randomNumbers.forEach(button => {
+    for (let i = 0; i < randomNumbers.length; i++) {
+        let button = randomNumbers[i];
         button.addEventListener('click', function() {
-            addToSelection(button.textContent);
+            addToSelection(button.textContent, i);
             updateResult();
         });
-    });    
+    }
 }
+
 
 // inicializa as operações                                                      //
 function initializeOperations() {
@@ -290,6 +325,19 @@ function initializeOperations() {
             updateResult();
         });
     });
+}
+
+// inicializa o cabeçalho dos números
+function initializeHeader() {
+    let header = "";
+    console.log(headerOp);
+    if (headerOp === 1) {
+        header = "Números gerados: ";
+        numbersHeader.textContent = header;
+    } else {
+        header = "Números restantes: ";
+        numbersHeader.textContent = header;
+    }
 }
 
 // inicializa os botões                                                         //
@@ -303,6 +351,7 @@ function initializeSystem() {
     generateNumbers();
     displayInitialNumbers();
     initializeButtons();
+    initializeHeader();
 }
 
 // IN                                                                           //
