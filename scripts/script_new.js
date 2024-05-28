@@ -90,6 +90,13 @@ function updateResult() {
             return;
         }
 
+        if (result > 99) {
+            alert('O resultado possui mais de dois dígitos.');
+            selectedOperation.textContent = '';
+            resultSpan.textContent = '=';
+            return;
+        }
+
         resultSpan.textContent = '= ' + result;
     }
 }
