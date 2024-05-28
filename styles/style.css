@@ -107,6 +107,11 @@ body {
     cursor: pointer;
 }
 
+#numbers-header {
+    transition: opacity 1s ease-in-out;
+    opacity: .7;
+}
+
 /* Media query para dispositivos menores que 768px */
 @media screen and (max-width: 768px) {
 
