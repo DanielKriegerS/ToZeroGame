@@ -325,15 +325,19 @@ function initializeNumbers(){
 }
 
 
-// inicializa as operações                                                      //
+// Inicializa as operações
 function initializeOperations() {
-    operations.forEach(button => {
-        button.addEventListener('click', function(){
-            addOperation(button.textContent);
-            updateResult();
-        });
+    const operationsValues = [' + ', ' - ', ' * ', ' / ', ' ^ '];
+    const buttons = document.querySelectorAll('.op-button');
+
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        addOperation(operationsValues[index]);
+        updateResult(); 
     });
+  });
 }
+
 
 // inicializa o cabeçalho dos números
 function initializeHeader() {
