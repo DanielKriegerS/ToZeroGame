@@ -75,7 +75,7 @@ body {
     font-size: 2em;
 }
 
-.op-button:hover {
+.op-button i:hover {
     color: rgba(198, 199, 140, .9);
     cursor: pointer;   
 }
