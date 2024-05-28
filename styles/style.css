@@ -68,6 +68,13 @@ body {
     margin-right: 1em;
     font-weight: 600;
     color:  rgba(198, 199, 20, .7);
+    text-decoration: none;
+    transition: all .7s ease-in-out;
+}
+
+.links:hover {
+    color: rgba(219, 148, 7, 0.8);
+    background-color: rgba(219, 148, 7, 0.4);
 }
 
 .op-button {
