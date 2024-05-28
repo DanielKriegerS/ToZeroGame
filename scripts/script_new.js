@@ -42,6 +42,7 @@ function returnSelecteds() {
     for (let i = 0; i < randomNumbers.length; i++){
         if (randomNumbers[i].textContent === ''){
             randomNumbers[i].textContent = selectedNumbersValues[j];
+            randomNumbersValues[i] = randomNumbers[i].textContent;
             j++;
         } 
     }
@@ -67,7 +68,7 @@ function updateResult() {
             case ' / ':
                 result = numbers.reduce((acc, curr) => acc / curr);
                 break;
-            case ' x ':
+            case ' ^ ':
                 result = numbers.reduce((acc, curr) => Math.pow(acc, curr));
                 break;
             default:
@@ -77,6 +78,13 @@ function updateResult() {
     
         if (!Number.isInteger(result)) {
             alert('O resultado não é um número inteiro.');
+            selectedOperation.textContent = '';
+            resultSpan.textContent = '=';
+            return;
+        }
+
+        if (result < 0) {
+            alert('O resultado não é um número positivo.');
             selectedOperation.textContent = '';
             resultSpan.textContent = '=';
             return;
@@ -330,13 +338,20 @@ function initializeOperations() {
 // inicializa o cabeçalho dos números
 function initializeHeader() {
     let header = "";
-    console.log(headerOp);
+    numbersHeader.style.opacity = 0;
+
     if (headerOp === 1) {
         header = "Números gerados: ";
-        numbersHeader.textContent = header;
+        setTimeout(() => {
+            numbersHeader.textContent = header;
+            numbersHeader.style.opacity = 1;
+        }, 700);
     } else {
         header = "Números restantes: ";
-        numbersHeader.textContent = header;
+        setTimeout(() => {
+            numbersHeader.textContent = header;
+            numbersHeader.style.opacity = 1;
+        }, 700);
     }
 }
 
