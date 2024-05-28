@@ -18,7 +18,7 @@ body {
     background-color: rgba(100, 40, 30, .8);
     padding: 0;
     height: 90vh;
-    width: 100vb;
+    width: 100vw;
 }
 
 #header {
@@ -66,6 +66,7 @@ body {
 
 .links {
     margin-right: 1em;
+    font-size: 1.3em;
     font-weight: 600;
     color:  rgba(198, 199, 20, .7);
     text-decoration: none;
@@ -88,7 +89,7 @@ body {
 }
 
 .random-numbers, .selected-numbers, .selected-operation, #result {
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 0 .5em 0 .5em;
     transition: all .8s ease-out;
 }
@@ -97,6 +98,11 @@ body {
     background-color: rgba(219, 148, 7, 0.8);
     cursor: pointer;
 }
+
+.random-numbers {
+    width: 20%;
+}
+
 
 #execute-operation, #cancel-operation, #restart-game {
     margin-top: 1em;
