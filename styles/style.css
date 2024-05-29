@@ -56,6 +56,10 @@ body {
     align-items: center;
 }
 
+#buttons {
+    justify-content: center;
+}
+
 #random-number, #selection {
     padding-top: 0;
 }
