@@ -35,7 +35,6 @@ body {
 #main-content {
     justify-content: right;
     padding: 2em 2em 2em 0;
-    
 }
 
 .contents {
@@ -52,6 +51,8 @@ body {
 
 #operations {
     width: 20%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -127,5 +128,49 @@ body {
 
 /* Media query para dispositivos menores que 768px */
 @media screen and (max-width: 768px) {
+    #navigation {
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        padding: auto 0;
+    }
 
+    #main-content {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    #game-content {
+        width: 100%;
+        border: none;
+        padding: 1em;
+    }
+
+    #buttons {
+        justify-content: center;
+    }
+
+    #buttons > button{
+        max-width: 30%;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    #operations > h1 {
+        display: none;
+    }
+
+    #operations {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: .8em;
+        margin: 0 .6em;
+        align-self: center;        
+    }
+
+    .op-button {
+       margin: 0 .5em;
+    }
 }
