@@ -1,65 +1,132 @@
-// carga dos elementos do DOM
+//*                         ELEMENTOS GERAIS DO SISTEMA                         *//
+//*                                                                             *//
+// carga dos elementos do DOM                                                    //
 const randomNumbers = document.querySelectorAll('.random-numbers');
 const selectedNumbers = document.querySelectorAll('.selected-numbers');
 const selectedOperation = document.querySelector('.selected-operation');
 const operations = document.querySelectorAll('.op-button');
 const resultSpan = document.getElementById('result');
+const numbersHeader = document.getElementById('numbers-header');
 document.getElementById('cancel-operation').addEventListener('click', clear);
 document.getElementById('execute-operation').addEventListener('click', executeOperation);
 document.getElementById('restart-game').addEventListener('click', restartGame);
 
-// variáveis globais
+// variáveis globais                                                            //
 let selectedNumbersValues = [];
 let randomNumbersValues = [];
+let firstNumbers = [];
+// 1 - let staticNumber = 0;
+let headerOp = 1;
 
 
-// geração de números randomicos
+// fábrica de números aleatórios entre 1 e 9                                    //
 function randomNumber() {
+    // 1 - modo estatico removido para testes. Se tudo OK, remover permanente.
+    //return staticNumber +1;
+    
     return Math.floor(Math.random() * 9) + 1;
 }
 
-// insere números gerados na tela
-function initializeNumbers() {
-    randomNumbers.forEach(button => {
-        button.textContent = randomNumber();
-        randomNumbersValues.push(button.textContent);
-        localStorage.setItem('random-numbers', JSON.stringify(randomNumbersValues));
-        button.addEventListener('click', function() {
-            addToSelection(button.textContent);
-            updateResult();
-        });
-    })
+//*                         ATUALIZAÇÃO DE INFORMAÇÕES                         *//
+//*                                                                            *//
+// Atualiza a exibição dos números selecionados                                 //
+function updateSelectedNumbersDisplay() {
+    selectedNumbers.forEach((span, index) => {
+        span.textContent = selectedNumbersValues[index] || "";
+    });
 }
 
-// inicializa as operações
-function initializeOperations() {
-    operations.forEach(button => {
-        button.addEventListener('click', function(){
-            addOperation(button.textContent);
-            updateResult();
-        })
-    })
-}
-
-// seleciona número
-function addToSelection(number) {
-    for (let i = 0; i < selectedNumbers.length; i++) {
-        if (selectedNumbers[i].textContent === '') {
-            selectedNumbers[i].textContent = number;
-            selectedNumbersValues.push(number);
-            cleanRandom();
-            return;
-        }
+// Retorna valores selecionados
+function returnSelecteds() {
+    let j = 0
+    for (let i = 0; i < randomNumbers.length; i++){
+        if (randomNumbers[i].textContent === ''){
+            randomNumbers[i].textContent = selectedNumbersValues[j];
+            randomNumbersValues[i] = randomNumbers[i].textContent;
+            j++;
+        } 
     }
 }
 
-// seleciona operação
-function addOperation(operation) {
-    selectedOperation.textContent = operation.trim();
+// atualiza resultado                                                           //
+function updateResult() {
+    const { valid, numbers, operation } = validateOperation();
+
+    if (valid) {
+        let result = 0;
+
+        switch (operation) {
+            case ' + ':
+                result = numbers.reduce((acc, curr) => acc + curr);
+                break;
+            case ' - ':
+                result = numbers.reduce((acc, curr) => acc - curr);
+                break;
+            case ' * ':
+                result = numbers.reduce((acc, curr) => acc * curr);
+                break;
+            case ' / ':
+                result = numbers.reduce((acc, curr) => acc / curr);
+                break;
+            case ' ^ ':
+                result = numbers.reduce((acc, curr) => Math.pow(acc, curr));
+                break;
+            default:
+                alert('Operação inválida.');
+                return;
+        }
+    
+        if (!Number.isInteger(result)) {
+            alert('O resultado não é um número inteiro.');
+            selectedOperation.textContent = '';
+            resultSpan.textContent = '=';
+            return;
+        }
+
+        if (result < 0) {
+            alert('O resultado não é um número positivo.');
+            selectedOperation.textContent = '';
+            resultSpan.textContent = '=';
+            return;
+        }
+
+        if (result > 99) {
+            alert('O resultado possui mais de dois dígitos.');
+            selectedOperation.textContent = '';
+            resultSpan.textContent = '=';
+            return;
+        }
+
+        resultSpan.textContent = '= ' + result;
+    }
+}
+
+// Substitui os números selecionados pelos dígitos do resultado
+function replaceSelectedNumbers(digits) {
+    let replaces = 0;
+    for(let i = 0; i < randomNumbers.length; i++) {
+        if (randomNumbers[i].textContent === '') {
+            randomNumbers[i].textContent = digits[replaces];
+            randomNumbersValues[i] = randomNumbers[i].textContent;
+            replaces++;
+        }
+    }
+    changeHeader(2);
+    clearFields();
+    checkEndGame();
+}
+
+// Altera o valor do header
+function changeHeader(operation) {
+    headerOp = operation;
+    initializeHeader();
     return;
 }
 
-// valida a operação
+
+//*                             VALIDAÇÕES DO JOGO                             *//
+//*                                                                            *//
+// valida a operação                                                            //
 function validateOperation() {
     let numbers = [];
     let operation = selectedOperation.textContent;
@@ -78,139 +145,63 @@ function validateOperation() {
     return { valid: true, numbers, operation };
 }
 
-// atualiza resultado
-function updateResult() {
-    const { valid, numbers, operation } = validateOperation();
 
-    if (valid) {
-        let result = 0;
-
-        switch (operation) {
-            case '+':
-                result = numbers.reduce((acc, curr) => acc + curr);
-                break;
-            case '-':
-                result = numbers.reduce((acc, curr) => acc - curr);
-                break;
-            case '*':
-                result = numbers.reduce((acc, curr) => acc * curr);
-                break;
-            case '/':
-                result = numbers.reduce((acc, curr) => acc / curr);
-                break;
-            case 'x':
-                result = numbers.reduce((acc, curr) => Math.pow(acc, curr));
-                break;
-            default:
-                alert('Operação inválida.');
-                return;
-        }
-    
-        if (!Number.isInteger(result)) {
-            alert('O resultado não é um número inteiro.');
-            selectedOperation.textContent = '';
-            return;
-        }
-    
-        resultSpan.textContent = '= ' + result;
+//*                     EFETUA SELEÇÃO DE ELEMENTOS                            *//
+//*                                                                            *//
+// Adiciona número à seleção                                                    //
+function addToSelection(value, index) {
+    if (selectedNumbersValues.length < 2 && randomNumbersValues[index] !== 0
+                                         && randomNumbersValues[index] !== "") {
+        selectedNumbersValues.push(value);
+        updateSelectedNumbersDisplay();
+        cleanRandom(index);
+        return;
     }
 }
 
+// Adiciona operação à seleção
+function addOperation(operation) {
+    selectedOperation.textContent = operation;
+}
+
+
+//*                             FUNÇÕES DA OPERAÇÃO                            *//
+//*                                                                            *//   
 // Executa operação
 function executeOperation() {
-   let result = getResultValue();
-   let resultDigits = splitDigits(result);
-   replaceSelectedNumbers(resultDigits);
-}
-
-// Substitui os números selecionados pelos dígitos do resultado
-function replaceSelectedNumbers(digits) {
-    let replaces = 0;
-    for(let i = 0; i < randomNumbers.length; i++) {
-        if (randomNumbers[i].textContent === '') {
-            randomNumbers[i].textContent = digits[replaces];
-            replaces++;
-        }
+    let result = getResultValue();
+    if (result !== undefined) {
+        let resultDigits = splitDigits(result);
+        replaceSelectedNumbers(resultDigits);    
     }
-
-    clearFields();
-    checkEndGame();
+    return;
 }
-
+   
+   
 // Divide o número em dígitos individuais e retorna como uma matriz
-function splitDigits(number) {
-    const digits = number
-                    .toString()
-                    .split('')
-                    .map(Number)
-                    .filter(digit => digit !== 0);
-    return digits;
-}
-
-
+   function splitDigits(number) {
+       const digits = number
+                       .toString()
+                       .split('')
+                       .map(Number)
+                       .filter(digit => digit !== 0);
+       return digits;
+   }
+   
+   
 // Pega o valor do resultado
-function getResultValue() {
-    const resultText = resultSpan.textContent;
-    const match = resultText.match(/\d+/);
-    if (match) {
-        return parseInt(match[0]); 
-    } else {
-        return alert("Insira valores válidos."); 
-    }
-}
+   function getResultValue() {
+       const resultText = resultSpan.textContent;
+       const match = resultText.match(/\d+/);
+       if (match) {
+           return parseInt(match[0]); 
+       } else {
+           return alert("Insira valores válidos."); 
+       }
+   }
 
-// Reinicia o jogo
-function restartGame() {
-    let i = 0;
-    randomNumbers.forEach(button => {
-        button.textContent = randomNumbersValues[i];
-        clearFields();
-        i++;
-    });
-}
-
-// Limpeza do valor selecionado
-function cleanRandom() {
-    let occurs = 0;
-    randomNumbers.forEach(span => {
-        if (selectedNumbersValues.includes(span.textContent) && occurs < 1) {
-            span.textContent = '';
-            occurs++;
-            return;
-        }
-    });
-}
-
-
-// Limpeza de campos pelo botão de limpar
-function clear() {
-    returnSelecteds();
-    clearFields();
-}
-
-// Limpeza de campos
-function clearFields() {
-    selectedNumbers.forEach(span => {
-        span.textContent = '';
-    });
-
-    selectedOperation.textContent = '';
-    resultSpan.textContent = '=';
-
-    selectedNumbersValues = [];
-}
-
-// Retorna valores selecionados
-function returnSelecteds() {
-    let j = 0
-    for (let i = 0; i < randomNumbers.length; i++){
-        if (randomNumbers[i].textContent === ''){
-            randomNumbers[i].textContent = selectedNumbersValues[j];
-            j++;
-        } 
-    }
-}
-
+//*                                 FIM DE JOGO                                *//
+//*                                                                            *//      
 // Verifica e finaliza o jogo
 function checkEndGame() {
     let status;
@@ -229,20 +220,165 @@ function checkEndGame() {
         case 1:
             window.alert("Parabéns, você venceu!");
             initializeSystem();
+            changeHeader(1);
             break;
         case 2:
             window.alert("Que pena, foi por pouco!");
             initializeSystem();
+            changeHeader(1);
             break;
         default:
             return;
     }
 }
 
-// chama inicializações do sistema
-function initializeSystem() {
-    initializeOperations();
-    initializeNumbers();    
+// Reinicia o jogo
+function restartGame() {
+    let i = 0;
+    randomNumbers.forEach(button => {
+        button.textContent = firstNumbers[i];
+        randomNumbersValues[i] = firstNumbers[i];
+        changeHeader(1);
+        clearFields();
+        i++;
+    });
 }
 
+//*                             FUNÇÕES DE LIMPEZA                             *//
+//*                                                                            *//   
+// Limpeza de campos
+function clearFields() {
+    selectedNumbers.forEach(span => {
+        span.textContent = '';
+    });
+
+    selectedOperation.textContent = '';
+    resultSpan.textContent = '=';
+
+    selectedNumbersValues = [];
+}
+
+// Limpeza do valor selecionado
+function cleanRandom(index) {
+    for(let i = 0; i < randomNumbers.length; i++) {
+        if(randomNumbersValues[i] !== 0 && i === index){
+            randomNumbers[i].textContent = '';
+            randomNumbersValues[i] = 0;
+            return;
+        }
+    }
+
+}
+
+// Reseta os números aleatórios sempre antes de adicionar novos
+function resetNumbers() {
+    for (let i = 0; i < randomNumbersValues.length; i++){
+        randomNumbersValues[i] = 0;
+    }
+}
+// Limpeza de campos pelo botão de limpar
+function clear() {
+    returnSelecteds();
+    clearFields();
+}
+
+// Limpeza de campos
+function clearFields() {
+    selectedNumbers.forEach(span => {
+        span.textContent = '';
+    });
+
+    selectedOperation.textContent = '';
+    resultSpan.textContent = '=';
+
+    selectedNumbersValues = [];
+}
+
+// *                    ROTINA DE INICIALIZAÇÃO DO SISTEMA                      *//
+// *                                                                            *//   
+// gera números iniciais com base na quantia de números que devem haver na tela  //
+function generateNumbers() {
+    resetNumbers();
+    for (let i = 0; i < randomNumbers.length; i++) {
+        if (randomNumbersValues[i] === 0) {
+            randomNumbersValues[i] = randomNumber();
+            firstNumbers[i] = randomNumbersValues[i];
+        } else {
+            randomNumbersValues.push(randomNumber()); 
+            firstNumbers.push(randomNumbersValues[i]);
+        }
+    }
+    return randomNumbersValues;
+}
+
+// insere números gerados na tela                                               //
+function displayInitialNumbers() {
+    let i = 0;
+    randomNumbers.forEach(randomNumber => {
+        randomNumber.textContent = randomNumbersValues[i];
+        i++;
+    });
+}
+
+// inicializa os números
+function initializeNumbers(){
+    for (let i = 0; i < randomNumbers.length; i++) {
+        let button = randomNumbers[i];
+        button.addEventListener('click', function() {
+            addToSelection(button.textContent, i);
+            updateResult();
+        });
+    }
+}
+
+
+// Inicializa as operações
+function initializeOperations() {
+    const operationsValues = [' + ', ' - ', ' * ', ' / ', ' ^ '];
+    const buttons = document.querySelectorAll('.op-button');
+
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        addOperation(operationsValues[index]);
+        updateResult(); 
+    });
+  });
+}
+
+
+// inicializa o cabeçalho dos números
+function initializeHeader() {
+    let header = "";
+    numbersHeader.style.opacity = 0;
+
+    if (headerOp === 1) {
+        header = "Números gerados: ";
+        setTimeout(() => {
+            numbersHeader.textContent = header;
+            numbersHeader.style.opacity = 1;
+        }, 700);
+    } else {
+        header = "Números restantes: ";
+        setTimeout(() => {
+            numbersHeader.textContent = header;
+            numbersHeader.style.opacity = 1;
+        }, 700);
+    }
+}
+
+// inicializa os botões                                                         //
+function initializeButtons() {
+    initializeOperations();
+    initializeNumbers();
+}
+
+// inicialização do sistema                                                     //
+function initializeSystem() {
+    generateNumbers();
+    displayInitialNumbers();
+    initializeButtons();
+    initializeHeader();
+}
+
+// IN                                                                           //
 initializeSystem();
