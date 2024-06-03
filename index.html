@@ -17,51 +17,55 @@
     </div>
 
     <nav class="d-flex contents" id="navigation">
-        <a class="links" href="#main-content">Jogo</a>
+        <a class="links" href="#header">Jogo</a>
         <a class="links" href="#info">Instruções</a>
     </nav>
 
-    <div class="d-flex contents" id="main-content">
-        <div class="contents" id="game-content">
-            <div class="contents" id="random-number">
-                <h2 id="numbers-header"></h2>
-                <div id="numbers">
-                    <button class="random-numbers"></button>
-                    <button class="random-numbers"></button>
-                    <button class="random-numbers"></button>
+        <div class="d-flex contents" id="main-content">
+            <div class="contents" id="game-content">
+                <div class="contents" id="random-number">
+                    <h2 id="numbers-header"></h2>
+                    <div id="numbers">
+                        <button class="random-numbers"></button>
+                        <button class="random-numbers"></button>
+                        <button class="random-numbers"></button>
+                    </div>
+                </div>
+
+                <div class="contents" id="selection">
+                    <div class="row">
+                        <h2>Seleção:</h2>
+                    </div>
+                    <div id="selected-content">
+                        <span class="selected-numbers"></span>
+                        <span class="selected-operation"></span>
+                        <span class="selected-numbers"></span>
+                        <span id="result"> = </span>
+                    </div>
+                </div>
+
+                <div id="buttons" class="row">
+                    <button id="execute-operation" alt="CONFIRMAR"><i class="fa-solid fa-check"></i></button>
+                    <button id="cancel-operation" alt="APAGAR"><i class="fa-solid fa-eraser"></i></button>
+                    <button id="restart-game" alt="RECOMEÇAR"><i class="fa-solid fa-arrows-rotate"></i></button>
                 </div>
             </div>
 
-            <div class="contents" id="selection">
-                <div class="row">
-                    <h2>Seleção:</h2>
-                </div>
-                <div id="selected-content">
-                    <span class="selected-numbers"></span>
-                    <span class="selected-operation"></span>
-                    <span class="selected-numbers"></span>
-                    <span id="result"> = </span>
-                </div>
-            </div>
-
-            <div id="buttons" class="row">
-                <button id="execute-operation" alt="CONFIRMAR"><i class="fa-solid fa-check"></i></button>
-                <button id="cancel-operation" alt="APAGAR"><i class="fa-solid fa-eraser"></i></button>
-                <button id="restart-game" alt="RECOMEÇAR"><i class="fa-solid fa-arrows-rotate"></i></button>
+            <div class="contents" id="operations">
+                <h1>OPERAÇÕES</h1>
+                <button class="op-button"><i class="fa-solid fa-plus"></i> </button>
+                <button class="op-button"><i class="fa-solid fa-minus"></i> </button>
+                <button class="op-button"><i class="fa-solid fa-xmark"></i> </button>
+                <button class="op-button"><i class="fa-solid fa-divide"></i> </button>
+                <button class="op-button"> ^ </button>
             </div>
         </div>
 
-        <div class="contents" id="operations">
-            <h1>OPERAÇÕES</h1>
-            <button class="op-button"><i class="fa-solid fa-plus"></i> </button>
-            <button class="op-button"><i class="fa-solid fa-minus"></i> </button>
-            <button class="op-button"><i class="fa-solid fa-xmark"></i> </button>
-            <button class="op-button"><i class="fa-solid fa-divide"></i> </button>
-            <button class="op-button"> ^ </button>
+        <div class="contents" id="info" >
+            
         </div>
-   </div>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="scripts/script_new.js"></script>
 </body>
 </html>
