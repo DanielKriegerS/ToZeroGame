@@ -21,6 +21,11 @@ body {
     width: 100vw;
 }
 
+#header {
+    flex-direction: column;
+    align-items: center;
+}
+
 #navigation {
     font-size: 1.5em;
     justify-content: center;

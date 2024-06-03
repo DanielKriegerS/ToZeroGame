@@ -2,11 +2,6 @@
     definições de caixas
 */
 
-#header {
-    flex-direction: column;
-    align-items: center;
-}
-
 #main-content {
     justify-content: right;
     padding: 2em 2em 2em 0;
