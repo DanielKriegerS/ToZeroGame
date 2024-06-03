@@ -1,0 +1,91 @@
+/*/
+    definições de caixas
+*/
+
+#header {
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-content {
+    justify-content: right;
+    padding: 2em 2em 2em 0;
+}
+
+.contents {
+    border: .1em solid;
+    margin-top: 1em;
+    padding: 1em;
+    max-height: 80%;
+}
+
+#game-content {
+    margin-right: 2em;
+    width: 50%;
+}
+
+#operations {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#buttons {
+    justify-content: center;
+}
+
+#random-number, #selection {
+    padding-top: 0;
+}
+
+/*/
+    Definições de elementos
+*/
+
+.op-button {
+    font-weight: 800;
+    font-size: 2em;
+}
+
+.op-button i:hover {
+    color: rgba(198, 199, 140, .9);
+    cursor: pointer;   
+}
+
+.random-numbers, .selected-numbers, .selected-operation, #result {
+    font-size: 2em;
+    margin: 0 .5em 0 .5em;
+    transition: all .8s ease-out;
+}
+
+.random-numbers:hover{
+    background-color: rgba(219, 148, 7, 0.8);
+    cursor: pointer;
+}
+
+.random-numbers {
+    width: 20%;
+}
+
+
+#execute-operation, #cancel-operation, #restart-game {
+    margin-top: 1em;
+    border: .3em solid;
+    border-radius: 20em;
+    max-width: 20%;
+    padding: 1em;
+    font-weight: 800;
+    transition: all .5s ease-in;
+}
+
+#execute-operation:hover, #cancel-operation:hover, #restart-game:hover {
+    background-color: rgba(219, 148, 7, 0.8);
+    color: rgba(59, 45, 3, 0.5);
+    cursor: pointer;
+}
+
+#numbers-header {
+    transition: opacity 1s ease-in-out;
+    opacity: .7;
+}
