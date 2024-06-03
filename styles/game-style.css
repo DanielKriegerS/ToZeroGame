@@ -12,13 +12,6 @@
     padding: 2em 2em 2em 0;
 }
 
-.contents {
-    border: .1em solid;
-    margin-top: 1em;
-    padding: 1em;
-    max-height: 80%;
-}
-
 #game-content {
     margin-right: 2em;
     width: 50%;
