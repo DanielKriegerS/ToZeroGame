@@ -30,6 +30,7 @@ body {
     font-size: 1.5em;
     justify-content: center;
     padding: .5em 0;
+    margin-bottom: 2em;
 }
 
 #main-content {
@@ -62,6 +63,11 @@ body {
 
 #random-number, #selection {
     padding-top: 0;
+}
+
+#info {
+    width: 50%;
+    margin: 5em auto;
 }
 
 
