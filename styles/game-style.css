@@ -67,6 +67,10 @@
     transition: all .5s ease-in;
 }
 
+.command-button {
+    margin-left: 1em;
+}
+
 #execute-operation:hover, #cancel-operation:hover, #restart-game:hover {
     background-color: rgba(219, 148, 7, 0.8);
     color: rgba(59, 45, 3, 0.5);
