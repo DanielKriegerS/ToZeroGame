@@ -5,6 +5,14 @@
 #main-content {
     display: flex;
     justify-content: center;
+    text-align: center;
+    padding-bottom: 4em;
+    height: 100vh;
+}
+
+#image-section img{
+    height: 70%;
+    margin: 1em;
 }
 
 /*/
