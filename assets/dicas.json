@@ -1,6 +1,12 @@
-{
-    "Informação_inicial": {
-        "message": "Esta é a mensagem correspondente ao TÍTULO DE INFO.",
+[
+    {
+        "title": "Informação 1",
+        "message": "Primeira mensagem",
+        "image": "/assets/teste-imagem-1.png"
+    },
+    {
+        "title": "Informação 2",
+        "message": "Segunda mensagem",
         "image": "/assets/teste-imagem-1.png"
     }
-}
+]

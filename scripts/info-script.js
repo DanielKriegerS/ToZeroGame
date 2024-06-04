@@ -1,44 +1,65 @@
 const infoTitle = document.querySelector('#info-title');
-let HCtitle = "Informação_inicial";
+const infoText = document.querySelector('#info-text');
+const imageSection = document.getElementById('image-section');
+const leftArrow = document.querySelector('.fa-arrow-left');
+const rightArrow = document.querySelector('.fa-arrow-right');
 
-infoTitle.textContent = HCtitle;
+let currentIndex = 0;
+let contentArray = [];
 
 // Função para carregar o conteúdo do arquivo JSON
-async function loadMessage() {
+async function loadMessages() {
     try {
         const response = await fetch('/assets/dicas.json');
         if (!response.ok) {
             throw new Error('Erro ao carregar o arquivo de mensagens');
         }
-        const data = await response.json();
-        const content = data[HCtitle];
-
-        if (content) {
-            const message = content.message || 'Mensagem não encontrada para este título.';
-            const imageUrl = content.image || '';
-
-            console.log('Image URL:', imageUrl);
-
-            document.getElementById('info-text').innerText = message;
-
-            if (imageUrl) {
-                const imageSection = document.getElementById('image-section');
-                // Cria um novo elemento img
-                const imageElement = document.createElement('img');
-                // Define os atributos src e alt
-                imageElement.src = imageUrl;
-                imageElement.alt = `Imagem relacionada à ${HCtitle}`;
-                imageElement.classList.add('img-fluid'); // Adiciona a classe img-fluid
-                // Adiciona a imagem à seção da imagem
-                imageSection.appendChild(imageElement);
-            }
-        } else {
-            document.getElementById('info-text').innerText = 'Mensagem não encontrada para este título.';
-        }
+        contentArray = await response.json();
+        displayContent(currentIndex);
     } catch (error) {
-        document.getElementById('info-text').innerText = 'Erro ao carregar a mensagem.';
+        infoText.innerText = 'Erro ao carregar a mensagem.';
         console.error(error);
     }
 }
 
-loadMessage();
+// Função para exibir o conteúdo baseado no índice
+function displayContent(index) {
+    const content = contentArray[index];
+    if (content) {
+        const title = content.title || 'Título não encontrado';
+        const message = content.message || 'Mensagem não encontrada';
+        const imageUrl = content.image || '';
+
+        infoTitle.innerText = title;
+        infoText.innerText = message;
+
+        if (imageUrl) {
+            imageSection.innerHTML = ''; // Limpa qualquer imagem existente
+            const imageElement = document.createElement('img');
+            imageElement.src = imageUrl;
+            imageElement.alt = `Imagem relacionada à ${title}`;
+            imageElement.classList.add('img-fluid'); // Adiciona a classe img-fluid
+            imageSection.appendChild(imageElement);
+        }
+    } else {
+        infoText.innerText = 'Conteúdo não encontrado para este índice.';
+    }
+}
+
+// Event listeners para as setas
+leftArrow.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        displayContent(currentIndex);
+    }
+});
+
+rightArrow.addEventListener('click', () => {
+    if (currentIndex < contentArray.length - 1) {
+        currentIndex++;
+        displayContent(currentIndex);
+    }
+});
+
+// Carrega as mensagens quando a página é carregada
+loadMessages();
