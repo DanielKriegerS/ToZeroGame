@@ -1,0 +1,18 @@
+/*/
+    definições de caixas
+*/
+
+#main-content {
+    display: flex;
+    justify-content: center;
+}
+
+/*/
+    Definições de elementos
+*/
+
+#info-title {
+    font-weight: 700;
+    transition: all .7s ease-in-out;
+    margin-bottom: 1em;
+}
