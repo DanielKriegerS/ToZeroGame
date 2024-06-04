@@ -1,26 +1,45 @@
-/*/
-    definições de caixas
-*/
-
+/* Definições de caixas */
 #main-content {
     display: flex;
     justify-content: center;
     text-align: center;
-    padding-bottom: 4em;
-    height: 100vh;
+    margin: 0;
+    max-width: 100%;
 }
 
-#image-section img{
-    height: 70%;
-    margin: 1em;
+#image-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/*/
-    Definições de elementos
-*/
+.title-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+}
 
+.content-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Definições de elementos */
 #info-title {
     font-weight: 700;
     transition: all .7s ease-in-out;
     margin-bottom: 1em;
+}
+
+#image-div img {
+    height: 70%;
+    margin: 0 5em;
 }
