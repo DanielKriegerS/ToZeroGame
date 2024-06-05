@@ -10,7 +10,7 @@
     },
     {
         "title": "SELECIONAR",
-        "message": "A primeira coisa que você deverá fazer é selecionar dois números gerados, eles irão se tornar números selecionados agora!",
+        "message": "A primeira coisa que você deverá fazer é selecionar dois números gerados, eles irão se tornar números selecionados!",
         "image": {
             "small": ["/assets/img_instr_1_small.png"],
             "medium": ["/assets/img_instr_1_medium.png"],
