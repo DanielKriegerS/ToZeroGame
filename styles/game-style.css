@@ -14,6 +14,7 @@
 
 #operations {
     width: 20%;
+    height: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
