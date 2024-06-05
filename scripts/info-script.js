@@ -1,12 +1,18 @@
+//*                         ELEMENTOS GERAIS DO SISTEMA                         *//
+//*                                                                             *//
+// carga dos elementos do DOM                                                    //
 const infoTitle = document.querySelector('#info-title');
 const infoText = document.querySelector('#info-text');
 const imageSection = document.getElementById('image-section');
 const leftArrow = document.querySelector('.fa-arrow-left');
 const rightArrow = document.querySelector('.fa-arrow-right');
 
+// variáveis globais                                                            //
 let currentIndex = 0;
 let contentArray = [];
 
+//*                        CARGAS DE ELEMENTOS EXTERNOS                         *//
+//*                                                                             *//
 // Função para carregar o conteúdo do arquivo JSON
 async function loadMessages() {
     try {
@@ -22,6 +28,8 @@ async function loadMessages() {
     }
 }
 
+//*                       FUNÇÕES DE EXIBIÇÃO DOS DADOS                         *//
+//*                                                                             *//
 // Função para exibir o conteúdo baseado no índice
 function displayContent(index) {
     const content = contentArray[index];
@@ -81,6 +89,8 @@ function displayContent(index) {
     }
 }
 
+//*                               EVENT LISTENERS                               *//
+//*                                                                             *//
 // Event listeners para as setas
 leftArrow.addEventListener('click', () => {
     if (currentIndex > 0) {
@@ -102,5 +112,6 @@ rightArrow.addEventListener('click', () => {
     }
 });
 
-// Carrega as mensagens quando a página é carregada
+
+// IN
 loadMessages();
