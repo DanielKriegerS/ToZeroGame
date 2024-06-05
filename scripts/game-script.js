@@ -15,15 +15,11 @@ document.getElementById('restart-game').addEventListener('click', restartGame);
 let selectedNumbersValues = [];
 let randomNumbersValues = [];
 let firstNumbers = [];
-// 1 - let staticNumber = 0;
 let headerOp = 1;
 
 
 // fábrica de números aleatórios entre 1 e 9                                    //
 function randomNumber() {
-    // 1 - modo estatico removido para testes. Se tudo OK, remover permanente.
-    //return staticNumber +1;
-    
     return Math.floor(Math.random() * 9) + 1;
 }
 
