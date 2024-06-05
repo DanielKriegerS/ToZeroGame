@@ -39,33 +39,41 @@ function displayContent(index) {
             const pictureElement = document.createElement('picture');
 
             // Adiciona fontes para diferentes tamanhos de tela
-            if (imageUrls.large) {
-                const sourceLarge = document.createElement('source');
-                sourceLarge.srcset = imageUrls.large;
-                sourceLarge.media = '(min-width: 1024px)';
-                pictureElement.appendChild(sourceLarge);
+            if (window.innerWidth >= 1024) {
+                // Carrega imagens grandes
+                if (imageUrls.large && imageUrls.large.length > 0) {
+                    imageUrls.large.forEach(url => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = url;
+                        imgElement.alt = `Imagem relacionada à ${title}`;
+                        imgElement.classList.add('img-fluid');
+                        pictureElement.appendChild(imgElement);
+                    });
+                }
+            } else if (window.innerWidth >= 768) {
+                // Carrega imagens médias
+                if (imageUrls.medium && imageUrls.medium.length > 0) {
+                    imageUrls.medium.forEach(url => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = url;
+                        imgElement.alt = `Imagem relacionada à ${title}`;
+                        imgElement.classList.add('img-fluid');
+                        pictureElement.appendChild(imgElement);
+                    });
+                }
+            } else {
+                // Carrega imagens pequenas
+                if (imageUrls.small && imageUrls.small.length > 0) {
+                    imageUrls.small.forEach(url => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = url;
+                        imgElement.alt = `Imagem relacionada à ${title}`;
+                        imgElement.classList.add('img-fluid');
+                        pictureElement.appendChild(imgElement);
+                    });
+                }
             }
 
-            if (imageUrls.medium) {
-                const sourceMedium = document.createElement('source');
-                sourceMedium.srcset = imageUrls.medium;
-                sourceMedium.media = '(min-width: 768px)';
-                pictureElement.appendChild(sourceMedium);
-            }
-
-            if (imageUrls.small) {
-                const sourceSmall = document.createElement('source');
-                sourceSmall.srcset = imageUrls.small;
-                sourceSmall.media = '(max-width: 767px)';
-                pictureElement.appendChild(sourceSmall);
-            }
-
-            const imgElement = document.createElement('img');
-            imgElement.src = imageUrls.large || imageUrls.medium || imageUrls.small;
-            imgElement.alt = `Imagem relacionada à ${title}`;
-            imgElement.classList.add('img-fluid'); // Adiciona a classe img-fluid
-
-            pictureElement.appendChild(imgElement);
             imageSection.appendChild(pictureElement);
         }
     } else {
