@@ -51,12 +51,18 @@ leftArrow.addEventListener('click', () => {
     if (currentIndex > 0) {
         currentIndex--;
         displayContent(currentIndex);
+    } else {
+        currentIndex = contentArray.length - 1;
+        displayContent(currentIndex);
     }
 });
 
 rightArrow.addEventListener('click', () => {
     if (currentIndex < contentArray.length - 1) {
         currentIndex++;
+        displayContent(currentIndex);
+    } else {
+        currentIndex = 0;
         displayContent(currentIndex);
     }
 });
