@@ -18,6 +18,10 @@
         padding: 1em;
     }
 
+    #selection {
+        max-width: 100%;
+    }
+
     #buttons {
         justify-content: center;
     }
