@@ -10,13 +10,12 @@
 #image-div {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 #image-section {
-    margin: 0 5em;
+    margin: 1em 5em;
 }
+
 
 .title-div {
     display: flex;
@@ -34,6 +33,16 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+#image-grid {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+img{
+    margin: auto 2em;
 }
 
 /* Definições de elementos */
