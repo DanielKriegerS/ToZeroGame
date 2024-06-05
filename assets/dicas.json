@@ -8,5 +8,10 @@
         "title": "Informação 2",
         "message": "Segunda mensagem",
         "image": "/assets/teste-imagem-1.png"
+    },
+    {
+        "title": "Informação 3",
+        "message": "Terceira mensagem",
+        "image": "/assets/teste-imagem-1.png"
     }
 ]
