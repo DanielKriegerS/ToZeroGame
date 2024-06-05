@@ -2,16 +2,28 @@
     {
         "title": "Informação 1",
         "message": "Primeira mensagem",
-        "image": "/assets/teste-imagem-1.png"
+        "image": {
+            "small": "/assets/teste-imagem-1-small.png",
+            "medium": "/assets/teste-imagem-1-medium.png",
+            "large": "/assets/teste-imagem-1-large.png"
+        }
     },
     {
         "title": "Informação 2",
         "message": "Segunda mensagem",
-        "image": "/assets/teste-imagem-1.png"
+        "image": {
+            "small": "/assets/teste-imagem-2-small.png",
+            "medium": "/assets/teste-imagem-2-medium.png",
+            "large": "/assets/teste-imagem-2-large.png"
+        }
     },
     {
         "title": "Informação 3",
         "message": "Terceira mensagem",
-        "image": "/assets/teste-imagem-1.png"
+        "image": {
+            "small": "/assets/teste-imagem-3-small.png",
+            "medium": "/assets/teste-imagem-3-medium.png",
+            "large": "/assets/teste-imagem-3-large.png"
+        }
     }
 ]

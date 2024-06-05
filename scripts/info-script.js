@@ -28,18 +28,45 @@ function displayContent(index) {
     if (content) {
         const title = content.title || 'Título não encontrado';
         const message = content.message || 'Mensagem não encontrada';
-        const imageUrl = content.image || '';
+        const imageUrls = content.image || {};
 
         infoTitle.innerText = title;
         infoText.innerText = message;
 
-        if (imageUrl) {
-            imageSection.innerHTML = ''; // Limpa qualquer imagem existente
-            const imageElement = document.createElement('img');
-            imageElement.src = imageUrl;
-            imageElement.alt = `Imagem relacionada à ${title}`;
-            imageElement.classList.add('img-fluid'); // Adiciona a classe img-fluid
-            imageSection.appendChild(imageElement);
+        imageSection.innerHTML = ''; // Limpa qualquer imagem existente
+
+        if (imageUrls) {
+            const pictureElement = document.createElement('picture');
+
+            // Adiciona fontes para diferentes tamanhos de tela
+            if (imageUrls.large) {
+                const sourceLarge = document.createElement('source');
+                sourceLarge.srcset = imageUrls.large;
+                sourceLarge.media = '(min-width: 1024px)';
+                pictureElement.appendChild(sourceLarge);
+            }
+
+            if (imageUrls.medium) {
+                const sourceMedium = document.createElement('source');
+                sourceMedium.srcset = imageUrls.medium;
+                sourceMedium.media = '(min-width: 768px)';
+                pictureElement.appendChild(sourceMedium);
+            }
+
+            if (imageUrls.small) {
+                const sourceSmall = document.createElement('source');
+                sourceSmall.srcset = imageUrls.small;
+                sourceSmall.media = '(max-width: 767px)';
+                pictureElement.appendChild(sourceSmall);
+            }
+
+            const imgElement = document.createElement('img');
+            imgElement.src = imageUrls.large || imageUrls.medium || imageUrls.small;
+            imgElement.alt = `Imagem relacionada à ${title}`;
+            imgElement.classList.add('img-fluid'); // Adiciona a classe img-fluid
+
+            pictureElement.appendChild(imgElement);
+            imageSection.appendChild(pictureElement);
         }
     } else {
         infoText.innerText = 'Conteúdo não encontrado para este índice.';
