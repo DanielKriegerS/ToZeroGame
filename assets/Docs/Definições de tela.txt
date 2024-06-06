@@ -1,0 +1,39 @@
+* 	**** IMAGENS 	/    TÍTULO 	/ 	INSTRUÇÕES --> JOGO DOS NÚMEROS	****   *
+	
+	img_inicio_jogo	/	OBJETIVO	/	Os números aleatórios serão gerados para você! Seu objetivo principal será transformar todos esses números em 0. Use operações matemáticas
+										para concluir a missão.
+										
+	img_instr_1		/  SELECIONAR	/	A primeira coisa que você deverá fazer é selecionar dois números gerados, eles irão se tornar números selecionados agora!
+	
+	img_instr_2		/   OPERAÇÕES	/	As operações são responsáveis por transformar os números, você poderá ver uma prévia do resultado antes de efetuar a operação. Se você 
+										decidir efetuá-la, os números não serão mais os gerados aleatoriamente, agora serão números restantes!
+	
+	img_instr_3		/	COMANDOS	/	Existem três comandos possíveis: você pode cancelar a operação (no ícone borracha), também pode recomeçar a rodada, voltando aos números
+										gerados! E, finalmente, você também poderá efetuar a operação, com isso, você pode agora selecionar dos números restantes!
+										
+	img_result_nok	/	QUE PENA	/	Se no fim, houver apenas um número, não há mais operações possíveis para transformá-lo em zero (removemos os próprios zeros dos restantes
+										para tornar um pouco mais divertido).
+										
+	img_result_ok	/	PARABÉNS!	/	Se você conseguiu que não faltasse nenhum número no fim, ou seja, todos foram zerados, parabéns! Você venceu. Comece novamente, em breve
+										teremos níveis mais difíceis.
+										
+										
+	NOMES DE IMAGENS PARA VERSÃO MINIATURA:
+	
+	img_inicio_jogo_large			------->				img_inicio_jogo_medium				------->		img_inicio_jogo_small			
+																												
+    img_instr_1_large				------->				img_instr_1_medium          		------->        img_instr_1_small				
+																																						
+    img_instr_2						------->                img_instr_2_medium					------->        img_instr_2_small	            		
+																																						
+    img_instr_3						------->                img_instr_3_medium					------->        img_instr_3_small	            		
+																																						
+    img_result_nok					------->                img_result_nok_medium				------->        img_result_nok_small            		
+																																						
+    img_result_ok					------->                img_result_ok_medium				------->        img_result_ok_small	            		
+    				
+					
+					
+					
+LINKS:
+https://danielkriegers.github.io/ToZeroGame/
