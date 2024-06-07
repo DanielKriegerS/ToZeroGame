@@ -16,7 +16,7 @@ let contentArray = [];
 // Função para carregar o conteúdo do arquivo JSON
 async function loadMessages() {
     try {
-        const response = await fetch('/assets/dicas.json');
+        const response = await fetch('../assets/dicas.json');
         if (!response.ok) {
             throw new Error('Erro ao carregar o arquivo de mensagens');
         }
