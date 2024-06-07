@@ -3,54 +3,54 @@
         "title": "OBJETIVO",
         "message": "Os números aleatórios serão gerados para você! Seu objetivo principal será transformar todos esses números em 0. Use operações matemáticas para concluir a missão.",
         "image": {
-            "small": ["../assets/img_inicio_jogo_small.png"],
-            "medium": ["../assets/img_inicio_jogo_medium.png"],
-            "large": ["../assets/img_inicio_jogo_large.png"]
+            "small": ["./assets/img_inicio_jogo_small.png"],
+            "medium": ["./assets/img_inicio_jogo_medium.png"],
+            "large": ["./assets/img_inicio_jogo_large.png"]
         }
     },
     {
         "title": "SELECIONAR",
         "message": "A primeira coisa que você deverá fazer é selecionar dois números gerados, eles irão se tornar números selecionados!",
         "image": {
-            "small": ["../assets/img_instr_1_small.png"],
-            "medium": ["../assets/img_instr_1_medium.png"],
-            "large": ["../assets/img_instr_1_large.png"]
+            "small": ["./assets/img_instr_1_small.png"],
+            "medium": ["./assets/img_instr_1_medium.png"],
+            "large": ["./assets/img_instr_1_large.png"]
         }
     },
     {
         "title": "OPERAÇÕES",
         "message": "As operações são responsáveis por transformar os números, você poderá ver uma prévia do resultado antes de efetuar a operação. Se você decidir efetuá-la, os números não serão mais os gerados aleatoriamente, agora serão números restantes!",
         "image": {
-            "small": ["../assets/img_instr_2_small.png"],
-            "medium": ["../assets/img_instr_2_medium.png"],
-            "large": ["../assets/img_instr_2_large.png", "../assets/img_instr_2-2_large.png"]
+            "small": ["./assets/img_instr_2_small.png"],
+            "medium": ["./assets/img_instr_2_medium.png"],
+            "large": ["./assets/img_instr_2_large.png", "./assets/img_instr_2-2_large.png"]
         }
     },
     {
         "title": "COMANDOS",
         "message": "Existem três comandos possíveis: você pode cancelar a operação (no ícone borracha), também pode recomeçar a rodada, voltando aos números gerados! E, finalmente, você também poderá efetuar a operação, com isso, você pode agora selecionar dos números restantes!",
         "image": {
-            "small": ["../assets/img_instr_3_small.png"],
-            "medium": ["../assets/img_instr_3_medium.png"],
-            "large": ["../assets/img_instr_3_large.png"]
+            "small": ["./assets/img_instr_3_small.png"],
+            "medium": ["./assets/img_instr_3_medium.png"],
+            "large": ["./assets/img_instr_3_large.png"]
         }
     },
     {
         "title": "QUE PENA",
         "message": "Se no fim, houver apenas um número, não há mais operações possíveis para transformá-lo em zero (removemos os próprios zeros dos restantes para tornar um pouco mais divertido).",
         "image": {
-            "small": ["../assets/img_result_nok_small.png"],
-            "medium": ["../assets/img_result_nok_medium.png"],
-            "large": ["../assets/img_result_nok-2_large.png", "../assets/img_result_nok_large.png"]
+            "small": ["./assets/img_result_nok_small.png"],
+            "medium": ["./assets/img_result_nok_medium.png"],
+            "large": ["./assets/img_result_nok-2_large.png", "./assets/img_result_nok_large.png"]
         }
     },
     {
         "title": "PARABÉNS!",
         "message": "Se você conseguiu que não faltasse nenhum número no fim, ou seja, todos foram zerados, parabéns! Você venceu. Comece novamente, em breve teremos níveis mais difíceis.",
         "image": {
-            "small": ["../assets/img_result_ok_small.png"],
-            "medium": ["../assets/img_result_ok_medium.png"],
-            "large": ["../assets/img_result_ok-2_large.png" ,"../assets/img_result_ok_large.png"]
+            "small": ["./assets/img_result_ok_small.png"],
+            "medium": ["./assets/img_result_ok_medium.png"],
+            "large": ["./assets/img_result_ok-2_large.png" ,"./assets/img_result_ok_large.png"]
         }
     }
 ]
