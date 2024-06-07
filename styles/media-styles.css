@@ -52,21 +52,11 @@
         align-self: center;        
     }
 
-    .op-button {
+    .op-button, .command-button, .random-numbers, .links{
        margin: 0 auto;
     }
 
-    .command-button {
-        margin: auto;
-    }
 
-    .random-numbers {
-        margin: auto;
-    }
-
-    .links {
-        margin: auto;
-    }
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
