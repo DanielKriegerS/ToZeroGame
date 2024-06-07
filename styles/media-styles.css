@@ -1,5 +1,5 @@
 /* Media query para dispositivos menores que 768px */
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     #header {
         margin: 0;
     }
@@ -68,3 +68,8 @@
         margin: auto;
     }
 }
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    
+}
+  
