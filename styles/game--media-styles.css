@@ -61,5 +61,21 @@
 
 @media (min-width: 769px) and (max-width: 1023px) {
 
+    #navigation {
+        margin: 1em auto;
+    }
+
+    #game-content {
+        width: 100%;
+        border: none;
+        padding: auto;
+    }  
+
+    .links{
+        margin: 0 auto;
+        border: 1px solid black;
+     }
+
+
 }
   
