@@ -1,6 +1,7 @@
-/*/
-    definições de caixas
-*/
+/* importação */
+@import 'variables';
+
+/* definições de caixas */
 
 #main-content {
     justify-content: right;
@@ -18,7 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgba(56, 113, 3, 0.5);
+    color: $op-color;
 }
 
 #buttons {
@@ -38,12 +39,12 @@
 */
 
 .op-button i {
-    color: rgba(56, 113, 3, 0.5);
+    color: $op-color;
     font-size: 2.5em;
 }
 
 .op-button i:hover {
-    color: rgba(139, 224, 35, 0.9);
+    color: $buttons-hover-color;
     cursor: pointer;   
 }
 
@@ -54,7 +55,7 @@
 }
 
 .random-numbers:hover{
-    background-color: rgba(181, 241, 0, 0.8);
+    background-color: $buttons-hover-color;
     cursor: pointer;
 }
 
@@ -78,8 +79,8 @@
 }
 
 #execute-operation:hover, #cancel-operation:hover, #restart-game:hover {
-    background-color: rgba(158, 237, 165, 0.855);
-    color: rgba(1, 38, 37, 0.5);
+    background-color: $buttons-hover-color;
+    color: $main-color;
     cursor: pointer;
 }
 

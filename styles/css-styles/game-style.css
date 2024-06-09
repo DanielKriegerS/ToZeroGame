@@ -1,7 +1,7 @@
 @charset "UTF-8";
-/*/
-    definições de caixas
-*/
+/* importação */
+/* variáveis */
+/* definições de caixas */
 #main-content {
   justify-content: right;
   padding: 2em 2em 2em 0;
@@ -42,7 +42,7 @@
 }
 
 .op-button i:hover {
-  color: rgba(139, 224, 35, 0.9);
+  color: rgba(181, 241, 0, 0.8);
   cursor: pointer;
 }
 
@@ -76,8 +76,8 @@
 }
 
 #execute-operation:hover, #cancel-operation:hover, #restart-game:hover {
-  background-color: rgba(158, 237, 165, 0.855);
-  color: rgba(1, 38, 37, 0.5);
+  background-color: rgba(181, 241, 0, 0.8);
+  color: rgba(0, 6, 45, 0.7);
   cursor: pointer;
 }
 

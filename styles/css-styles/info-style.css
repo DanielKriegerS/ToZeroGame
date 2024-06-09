@@ -1,4 +1,6 @@
 @charset "UTF-8";
+/* importação */
+/* variáveis */
 /* Definições de caixas */
 #main-content {
   display: flex;
@@ -58,7 +60,7 @@ img {
 }
 
 .content-div i:hover {
-  color: rgba(219, 148, 7, 0.4);
+  color: rgba(7, 113, 140, 0.4);
   cursor: pointer;
 }
 

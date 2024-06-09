@@ -1,11 +1,6 @@
-/* variáveis */
-$main-color: rgba(0, 6, 45, 0.7);
-$bg-color: rgba(250, 249, 248, 0.9);
-$link-hover: rgba(4, 39, 64, 0.5);
-$bg-color-hover: rgba(7, 113, 140, 0.4);
-
-
 /* Definições padrão */
+@import 'variables';
+
 * {
     color: $main-color;
     box-sizing: border-box;
