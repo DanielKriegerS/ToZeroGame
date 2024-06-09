@@ -1,63 +1,65 @@
+@charset "UTF-8";
 /* Definições de caixas */
 #main-content {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
-    max-width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  max-width: 100%;
 }
 
 #image-div {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #image-section {
-    margin: 1em 5em;
+  margin: 1em 5em;
 }
 
-
 .title-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin: 0;
 }
 
 .content-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 #image-grid {
-    display: flex;
-    justify-content: center;
-    margin: auto;
+  display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
-img{
-    margin: auto 2em;
+img {
+  margin: auto 2em;
 }
 
 /* Definições de elementos */
 #info-title {
-    font-weight: 700;
-    transition: all .7s ease-in-out;
-    margin-bottom: .2em;
+  font-weight: 700;
+  transition: all 0.7s ease-in-out;
+  margin-bottom: 0.2em;
 }
 
 .content-div i {
-    font-size: 5em;
-    margin: auto;
+  font-size: 5em;
+  margin: auto;
 }
 
 .content-div i:hover {
-    color: rgba(219, 148, 7, 0.4);
-    cursor: pointer;
+  color: rgba(219, 148, 7, 0.4);
+  cursor: pointer;
 }
+
+/*# sourceMappingURL=info-style.css.map */

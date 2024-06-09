@@ -1,64 +1,62 @@
+@charset "UTF-8";
 /*/
     definições padrão
 */
-
 * {
-    color: rgba(0, 6, 45, 0.7);
-    box-sizing: border-box;
-    background-color: unset;
-    border: unset;
+  color: rgba(0, 6, 45, 0.7);
+  box-sizing: border-box;
+  background-color: unset;
+  border: unset;
 }
-
 
 /*/
     definições de caixas
 */
-
 body {
-    background-color: rgba(250, 249, 248, 0.9);
-    padding: 0;
-    height: 90vh;
-    width: 100vw;
+  background-color: rgba(250, 249, 248, 0.9);
+  padding: 0;
+  height: 90vh;
+  width: 100vw;
 }
 
 #header {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2em;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
 }
 
 #navigation {
-    font-size: 1.5em;
-    justify-content: center;
-    padding: .5em 0;
-    margin-bottom: 1em;
+  font-size: 1.5em;
+  justify-content: center;
+  padding: 0.5em 0;
+  margin-bottom: 1em;
 }
 
-
 .contents {
-    border: .1em solid;
-    margin-top: 1em;
-    padding: 1em;
-    max-height: 80%;
-    border-radius: 1em;
+  border: 0.1em solid;
+  margin-top: 1em;
+  padding: 1em;
+  max-height: 80%;
+  border-radius: 1em;
 }
 
 /*/
     Definições de elementos
 */
-
 .links {
-    margin-right: 1em;
-    font-size: 1.3em;
-    font-weight: 600;
-    color:  rgba(1, 25, 28, 0.7);
-    text-decoration: none;
-    transition: all .7s ease-in-out;
-    border-radius: 20%;
-    padding: .2em;
+  margin-right: 1em;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: rgba(1, 25, 28, 0.7);
+  text-decoration: none;
+  transition: all 0.7s ease-in-out;
+  border-radius: 20%;
+  padding: 0.2em;
 }
 
 .links:hover {
-    color: rgba(4, 39, 64, 0.5);
-    background-color: rgba(7, 113, 140, 0.4);
+  color: rgba(4, 39, 64, 0.5);
+  background-color: rgba(7, 113, 140, 0.4);
 }
+
+/*# sourceMappingURL=main-style.css.map */
