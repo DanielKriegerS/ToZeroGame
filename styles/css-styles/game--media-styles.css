@@ -1,3 +1,6 @@
+@charset "UTF-8";
+/* Importando variáveis */
+/* variáveis */
 /* Media query para dispositivos menores que 768px */
 @media (max-width: 768px) {
   #header {
@@ -43,8 +46,17 @@
     border: none;
     align-self: center;
   }
-  .op-button, .command-button, .random-numbers, .links {
+  .op-button, .command-button, .random-numbers {
     margin: 0 auto;
+  }
+  .links {
+    margin: 5px;
+    border-radius: 0%;
+    width: 80%;
+    text-align: center;
+  }
+  #navigation a:nth-of-type(1) {
+    border-bottom: 1px solid rgba(0, 6, 45, 0.7);
   }
 }
 @media (min-width: 769px) and (max-width: 1023px) {
@@ -58,7 +70,7 @@
   }
   .links {
     margin: 0 auto;
-    border: 1px solid black;
+    border: 1px solid;
   }
 }
 
