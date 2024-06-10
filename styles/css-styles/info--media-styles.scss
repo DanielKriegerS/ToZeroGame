@@ -1,3 +1,6 @@
+/* Importando variáveis */
+@import './variables';
+
 /* Media query para dispositivos menores que 768px */
 @media (max-width: 768px) {
     #header {
@@ -13,11 +16,14 @@
         padding: auto 0;
     }
 
-    .links{
-        margin: 0 auto;
-     }
+    .links {
+        margin: 5px;
+        border-radius: 0%;
+        width: 80%;
+        text-align: center;
+    }
 
-     .content-div {
+    .content-div {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -27,5 +33,9 @@
 
     img {
         margin: auto;
+    }
+
+    #navigation a:nth-of-type(1) {
+        border-bottom: 1px solid $main-color;
     }
 }
