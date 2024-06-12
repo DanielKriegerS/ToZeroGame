@@ -10,11 +10,6 @@
   max-width: 100%;
 }
 
-#image-div {
-  display: flex;
-  flex-direction: column;
-}
-
 #image-section {
   margin: 1em 5em;
 }
@@ -30,10 +25,6 @@
 }
 
 .content-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
@@ -54,9 +45,9 @@ img {
   margin-bottom: 0.2em;
 }
 
-.content-div i {
+#arrows > i {
   font-size: 5em;
-  margin: auto;
+  margin: auto 20%;
 }
 
 .content-div i:hover {
