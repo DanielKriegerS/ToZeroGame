@@ -26,17 +26,14 @@
 }
 
 .content-div {
+    align-items: center;
+    margin: auto;
     width: 100%;
 }
 
-#image-grid {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
 
 img{
-    margin: auto 2em;
+    margin: auto;
 }
 
 /* Definições de elementos */
@@ -46,9 +43,13 @@ img{
     margin-bottom: .2em;
 }
 
+#arrows {
+    margin: auto;
+}
+
 #arrows > i {
     font-size: 5em;
-    margin: auto 20% ;
+    margin: auto;
 }
 
 .content-div i:hover {
