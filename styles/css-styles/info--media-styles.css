@@ -7,12 +7,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
   }
   #image-grid {
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+  #image-section {
+    margin: 0 auto;
   }
   img {
     margin: auto;
