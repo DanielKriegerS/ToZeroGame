@@ -23,5 +23,17 @@
     border-bottom: 1px solid rgba(0, 6, 45, 0.7);
   }
 }
+/* Media query para dispositivos menores que 768px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .links {
+    margin: auto;
+    width: 50%;
+    border-radius: 0%;
+    text-align: center;
+  }
+  #navigation a:nth-of-type(1) {
+    border-right: 1px solid rgba(0, 6, 45, 0.7);
+  }
+}
 
 /*# sourceMappingURL=main--media-styles.css.map */
