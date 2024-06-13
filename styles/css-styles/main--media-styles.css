@@ -34,6 +34,16 @@
   #navigation a:nth-of-type(1) {
     border-right: 1px solid rgba(0, 6, 45, 0.7);
   }
+  /* Estilos para :focus e :active */
+  .links:focus,
+  .links:active {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Exemplo de feedback visual */
+  }
+  /* Estilo para o link ativo */
+  .links.active {
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Exemplo de feedback visual */
+  }
 }
 
 /*# sourceMappingURL=main--media-styles.css.map */
