@@ -27,6 +27,9 @@
         border-bottom: 1px solid $main-color;
     }
     
+    .links.active {
+        background-color: $bg-color-hover;
+    }
 }
 
 /* Media query para dispositivos menores que 768px */
@@ -42,15 +45,7 @@
         border-right: 1px solid $main-color;
     }
 
-    /* Estilos para :focus e :active */
-    .links:focus,
-    .links:active {
-        outline: none;
-        border: 1px solid rgba(0, 0, 0, 0.1); /* Exemplo de feedback visual */
-    }
-
-    /* Estilo para o link ativo */
     .links.active {
-        border: 1px solid rgba(0, 0, 0, 0.1); /* Exemplo de feedback visual */
+        background-color: $bg-color-hover;
     }
 }

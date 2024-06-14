@@ -22,6 +22,9 @@
   #navigation a:nth-of-type(1) {
     border-bottom: 1px solid rgba(0, 6, 45, 0.7);
   }
+  .links.active {
+    background-color: rgba(7, 113, 140, 0.4);
+  }
 }
 /* Media query para dispositivos menores que 768px */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -34,15 +37,8 @@
   #navigation a:nth-of-type(1) {
     border-right: 1px solid rgba(0, 6, 45, 0.7);
   }
-  /* Estilos para :focus e :active */
-  .links:focus,
-  .links:active {
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Exemplo de feedback visual */
-  }
-  /* Estilo para o link ativo */
   .links.active {
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Exemplo de feedback visual */
+    background-color: rgba(7, 113, 140, 0.4);
   }
 }
 
