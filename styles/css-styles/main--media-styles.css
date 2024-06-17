@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* Importando variáveis */
 /* variáveis */
 /* Media query para dispositivos menores que 768px */
 @media (max-width: 768px) {
@@ -39,7 +40,7 @@
     background-color: rgba(7, 113, 140, 0.4);
   }
 }
-/* Media query para dispositivos menores que 768px */
+/* Media query para dispositivos menores que 1024px e maiores que 768px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .link-divs {
     display: flex;
