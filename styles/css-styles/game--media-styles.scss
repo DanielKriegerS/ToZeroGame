@@ -50,15 +50,24 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1023px) {
+/* Media query para dispositivos menores que 1024px e maiores que 768px */
+@media (min-width: 769px) and (max-width: 1024px) {
   #navigation {
     margin: 1em auto;
   }
 
+  #main-content {
+    justify-content: flex-start;
+  }
+
   #game-content {
-    width: 100%;
+    width: 70%;
     border: none;
     padding: auto;
+  }
+
+  #game-content, #random-number {  
+    margin-top: 0;
   }
 
   .links {
@@ -66,3 +75,5 @@
     border: 1px solid;
   }
 }
+
+
