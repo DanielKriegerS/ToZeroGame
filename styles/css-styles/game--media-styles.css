@@ -57,6 +57,12 @@
   #game-content, #random-number {
     margin-top: 0;
   }
+  #selection {
+    max-width: 100%;
+  }
+  #random-number, #selection {
+    text-align: center;
+  }
   .links {
     margin: 0 auto;
     border: 1px solid;
