@@ -65,6 +65,8 @@
   }
   #op-title {
     margin-bottom: 2em;
+    padding: 0.5em;
+    border-bottom: 1px solid rgba(0, 6, 45, 0.7);
   }
   #operations {
     height: auto;
