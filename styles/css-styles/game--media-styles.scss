@@ -43,6 +43,12 @@
     align-self: center;
   }
 
+  #op-buttons .op-button {
+    display: inline-block;
+    width: auto; 
+    margin: 0 0.5em;
+  }
+
   .op-button, .command-button, .random-numbers {
     margin: 0 auto;
   }
