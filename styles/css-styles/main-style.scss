@@ -54,3 +54,7 @@ body {
     color: $link-hover;
     background-color: $bg-color-hover;
 }
+
+.links.active {
+    background-color: $bg-color-hover;
+}

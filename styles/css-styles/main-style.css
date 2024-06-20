@@ -54,4 +54,8 @@ body {
   background-color: rgba(7, 113, 140, 0.4);
 }
 
+.links.active {
+  background-color: rgba(7, 113, 140, 0.4);
+}
+
 /*# sourceMappingURL=main-style.css.map */

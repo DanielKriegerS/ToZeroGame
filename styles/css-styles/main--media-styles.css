@@ -63,9 +63,6 @@
     position: absolute;
     right: 0;
   }
-  .links.active {
-    background-color: rgba(7, 113, 140, 0.4);
-  }
 }
 
 /*# sourceMappingURL=main--media-styles.css.map */
