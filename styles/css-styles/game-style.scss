@@ -15,7 +15,7 @@
 
 #operations {
     width: 20%;
-    height: 45%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,6 +37,22 @@
 /*/
     Definições de elementos
 */
+
+.op-button {
+    margin:.5em 0;
+    position: relative;
+    padding: .1em ;
+}
+
+.op-button:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 70%;
+    background-color: $main-color;
+    position: absolute;
+    left: 15%;
+}
 
 .op-button i {
     color: $op-color;
@@ -87,4 +103,8 @@
 #numbers-header {
     transition: opacity 1s ease-in-out;
     opacity: .7;
+}
+
+#op-title {
+    margin-bottom: 1em;
 }
