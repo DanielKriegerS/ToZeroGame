@@ -38,7 +38,15 @@
   #op-buttons .op-button {
     display: inline-block;
     width: auto;
-    margin: 0 0.5em;
+    margin: 0 1em;
+  }
+  .op-button::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 6, 45, 0.7);
+    position: absolute;
   }
   .op-button, .command-button, .random-numbers {
     margin: 0 auto;
@@ -84,6 +92,15 @@
   .links {
     margin: 0 auto;
     border: 1px solid;
+  }
+  .op-button:last-child::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 70%;
+    background-color: rgba(0, 6, 45, 0.7);
+    position: absolute;
+    left: 15%;
   }
 }
 
