@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.links');
     const op_buttons = document.querySelectorAll('.op-button');
+    const cancelButton = document.getElementById('cancel-operation');
+    const executeButton = document.getElementById('execute-operation');        
+    const restartButton = document.getElementById('restart-game');
 
     // Função para remover a classe 'active' de todos os links
     function removeActiveClassesFromLinks() {
@@ -56,16 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('activeButtonId', button.getAttribute('data-id'));
         });
     });
+    
 
-    document.getElementById('cancel-operation').addEventListener('click', () => {
-        removeActiveClassesFromButtons();
-    });
+    if (cancelButton && executeButton && restartButton) {
+        cancelButton.addEventListener('click', () => {
+            removeActiveClassesFromButtons();
+        });
+       
+        executeButton.addEventListener('click', () => {
+            removeActiveClassesFromButtons();
+        });
 
-    document.getElementById('execute-operation').addEventListener('click', () => {
-        removeActiveClassesFromButtons();
-    });
-
-    document.getElementById('restart-game').addEventListener('click', () => {
-        removeActiveClassesFromButtons();
-    });
+        restartButton.addEventListener('click', () => {
+            removeActiveClassesFromButtons();
+        });
+    }        
 });
