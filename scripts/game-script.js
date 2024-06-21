@@ -122,6 +122,7 @@ function changeHeader(operation) {
 
  // Adicionar a classe active à operação
  function addActiveClass(operation) {
+    removeActiveClassesFromButtons();
     operation.classList.add('active');
 }
 
@@ -152,7 +153,6 @@ function activateOpButtons() {
     op_buttons.forEach(operation => {
         operation.addEventListener('click', () => {
             addActiveClass(operation);
-            removeActiveClassesFromButtons();
             localStorage.setItem('activeButtonId', operation.getAttribute('data-id'));
         });
     });
