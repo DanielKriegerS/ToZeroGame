@@ -106,4 +106,8 @@
   margin-bottom: 1em;
 }
 
+.op-button.active i {
+  color: rgba(181, 241, 0, 0.8);
+}
+
 /*# sourceMappingURL=game-style.css.map */

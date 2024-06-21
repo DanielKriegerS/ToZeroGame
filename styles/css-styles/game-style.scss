@@ -108,3 +108,7 @@
 #op-title {
     margin-bottom: 1em;
 }
+
+.op-button.active i{
+    color: $buttons-hover-color;
+}
