@@ -7,9 +7,10 @@ const selectedOperation = document.querySelector('.selected-operation');
 const operations = document.querySelectorAll('.op-button');
 const resultSpan = document.getElementById('result');
 const numbersHeader = document.getElementById('numbers-header');
-document.getElementById('cancel-operation').addEventListener('click', clear);
-document.getElementById('execute-operation').addEventListener('click', executeOperation);
-document.getElementById('restart-game').addEventListener('click', restartGame);
+const op_buttons = document.querySelectorAll('.op-button');
+document.getElementById('cancel-operation').addEventListener('click', clear, removeActiveClassesFromButtons);
+document.getElementById('execute-operation').addEventListener('click', executeOperation, removeActiveClassesFromButtons);
+document.getElementById('restart-game').addEventListener('click', restartGame, removeActiveClassesFromButtons);
 
 // variáveis globais                                                            //
 let selectedNumbersValues = [];
@@ -119,6 +120,12 @@ function changeHeader(operation) {
     return;
 }
 
+ // Adicionar a classe active à operação
+ function addActiveClass(operation) {
+    operation.classList.add('active');
+}
+
+
 
 //*                             VALIDAÇÕES DO JOGO                             *//
 //*                                                                            *//
@@ -141,6 +148,16 @@ function validateOperation() {
     return { valid: true, numbers, operation };
 }
 
+function activateOpButtons() {
+    op_buttons.forEach(operation => {
+        operation.addEventListener('click', () => {
+            addActiveClass(operation);
+            removeActiveClassesFromButtons();
+            localStorage.setItem('activeButtonId', operation.getAttribute('data-id'));
+        });
+    });
+
+}
 
 //*                     EFETUA SELEÇÃO DE ELEMENTOS                            *//
 //*                                                                            *//
@@ -165,6 +182,7 @@ function addOperation(operation) {
 //*                                                                            *//   
 // Executa operação
 function executeOperation() {
+    removeActiveClassesFromButtons();
     let result = getResultValue();
     if (result !== undefined) {
         let resultDigits = splitDigits(result);
@@ -230,6 +248,8 @@ function checkEndGame() {
 
 // Reinicia o jogo
 function restartGame() {
+    removeActiveClassesFromButtons();
+
     let i = 0;
     randomNumbers.forEach(button => {
         button.textContent = firstNumbers[i];
@@ -274,6 +294,7 @@ function resetNumbers() {
 }
 // Limpeza de campos pelo botão de limpar
 function clear() {
+    removeActiveClassesFromButtons();
     returnSelecteds();
     clearFields();
 }
@@ -288,6 +309,11 @@ function clearFields() {
     resultSpan.textContent = '=';
 
     selectedNumbersValues = [];
+}
+
+// Remoção das classes active
+function removeActiveClassesFromButtons() {
+    op_buttons.forEach(button => button.classList.remove('active'));
 }
 
 // *                    ROTINA DE INICIALIZAÇÃO DO SISTEMA                      *//
@@ -374,6 +400,7 @@ function initializeSystem() {
     displayInitialNumbers();
     initializeButtons();
     initializeHeader();
+    activateOpButtons()
 }
 
 // IN                                                                           //
