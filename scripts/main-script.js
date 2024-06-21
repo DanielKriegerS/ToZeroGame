@@ -56,4 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('activeButtonId', button.getAttribute('data-id'));
         });
     });
+
+    document.getElementById('cancel-operation').addEventListener('click', () => {
+        removeActiveClassesFromButtons();
+    });
+
+    document.getElementById('execute-operation').addEventListener('click', () => {
+        removeActiveClassesFromButtons();
+    });
+
+    document.getElementById('restart-game').addEventListener('click', () => {
+        removeActiveClassesFromButtons();
+    });
 });
