@@ -1,19 +1,23 @@
+//*                         ELEMENTOS GERAIS DO SISTEMA                         *//
+//*                                                                             *//
 document.addEventListener('DOMContentLoaded', () => {
+    // carga dos elementos do DOM   
     const links = document.querySelectorAll('.links');
+    
+    // carga dos elementos do localstorage
+    const activeLinkId = localStorage.getItem('activeLinkId');
 
-   
-    // Função para remover a classe 'active' de todos os links
+    // remoção das classes ACTIVE
     function removeActiveClassesFromLinks() {
         links.forEach(link => link.classList.remove('active'));
     }
 
-    // Função para adicionar a classe 'active' ao link clicado
-    function addActiveClass(element) {
-        element.classList.add('active');
+    // adição da classe ACTIVE
+    function addActiveClass(link) {
+        link.classList.add('active');
     }
 
-    // Verificar se há um link ativo armazenado no localStorage
-    const activeLinkId = localStorage.getItem('activeLinkId');
+    // verificação de link ACTIVE    
     if (activeLinkId) {
         const link = document.querySelector(`.links[data-id="${activeLinkId}"]`);
         if (link) {
@@ -21,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // adição dos listeners aos links
     links.forEach(link => {
         link.addEventListener('click', () => {
             removeActiveClassesFromLinks();
