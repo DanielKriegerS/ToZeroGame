@@ -7,34 +7,17 @@
     margin: 1em auto;
   }
   #navigation {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: auto;
     padding: auto 0;
-  }
-  .links {
-    margin: auto;
-  }
-  .link-divs {
-    display: flex;
-    padding: 0.2em;
-    justify-content: center;
     width: 100%;
   }
-  .link-divs:not(:last-child) {
-    position: relative;
-    padding-bottom: 0.2em;
+  .link-spans {
+    display: none;
   }
-  .link-divs:not(:last-child)::after {
-    content: "";
-    display: block;
-    width: 75%;
-    height: 1px;
-    background-color: rgba(0, 6, 45, 0.7);
-    position: absolute;
-    bottom: 0;
+  .link-divs {
+    margin: auto;
   }
 }
 /* Media query para dispositivos menores que 1024px e maiores que 768px */
