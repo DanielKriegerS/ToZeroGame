@@ -24,9 +24,10 @@ body {
 
 #navigation {
   font-size: 1.5em;
-  justify-content: center;
-  padding: 0.5em 0;
-  margin-bottom: 1em;
+  margin-top: 0;
+  text-align: center;
+  max-width: fit-content;
+  border-radius: 100px;
 }
 
 .contents {
@@ -37,16 +38,25 @@ body {
   border-radius: 1em;
 }
 
+#nav-div {
+  justify-content: center;
+}
+
 /* Definições de elementos */
 .links {
-  margin-right: 1em;
+  justify-content: center;
   font-size: 1.3em;
   font-weight: 600;
   color: rgba(0, 6, 45, 0.7);
-  text-decoration: none;
   transition: all 0.7s ease-in-out;
   border-radius: 20%;
-  padding: 0.2em;
+  width: 2em;
+  padding: 5px;
+  border: 1.5px solid rgba(0, 6, 45, 0.7);
+}
+
+.link-divs a {
+  text-decoration: none;
 }
 
 .links:hover {
@@ -56,6 +66,10 @@ body {
 
 .links.active {
   background-color: rgba(7, 113, 140, 0.4);
+}
+
+.link-spans.active {
+  font-weight: bolder;
 }
 
 /*# sourceMappingURL=main-style.css.map */
