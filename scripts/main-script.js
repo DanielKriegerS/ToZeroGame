@@ -1,34 +1,38 @@
-//*                         ELEMENTOS GERAIS DO SISTEMA                         *//
-//*                                                                             *//
 document.addEventListener('DOMContentLoaded', () => {
-    // carga dos elementos do DOM   
-    const links = document.querySelectorAll('.links');
-    
-    // carga dos elementos do localstorage
+    // Carga dos elementos do DOM   
+    const links = document.querySelectorAll('.link-divs a');
+    const spans = document.querySelectorAll('.link-spans');
+
+    // Carga dos elementos do localStorage
     const activeLinkId = localStorage.getItem('activeLinkId');
 
-    // remoção das classes ACTIVE
-    function removeActiveClassesFromLinks() {
-        links.forEach(link => link.classList.remove('active'));
+    // Remoção das classes ACTIVE dos links e spans
+    function removeActiveClasses() {
+        links.forEach(link => {
+            link.querySelector('.links').classList.remove('active');
+            link.querySelector('.link-spans').classList.remove('active');
+        });
     }
 
-    // adição da classe ACTIVE
+    // Adição da classe ACTIVE aos links e spans correspondentes
     function addActiveClass(link) {
-        link.classList.add('active');
+        link.querySelector('.links').classList.add('active');
+        link.querySelector('.link-spans').classList.add('active');
     }
 
-    // verificação de link ACTIVE    
+    // Verificação de link ACTIVE
     if (activeLinkId) {
-        const link = document.querySelector(`.links[data-id="${activeLinkId}"]`);
-        if (link) {
-            addActiveClass(link);
+        const activeLink = document.querySelector(`.link-divs a[data-id="${activeLinkId}"]`);
+        if (activeLink) {
+            addActiveClass(activeLink);
         }
     }
 
-    // adição dos listeners aos links
+    // Adição dos listeners aos links
     links.forEach(link => {
-        link.addEventListener('click', () => {
-            removeActiveClassesFromLinks();
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            removeActiveClasses();
             addActiveClass(link);
 
             localStorage.setItem('activeLinkId', link.getAttribute('data-id'));
@@ -37,5 +41,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = link.href;
             }, 100);
         });
-    });  
+    });
 });
