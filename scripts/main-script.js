@@ -3,10 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.link-divs a');
     const spans = document.querySelectorAll('.link-spans');
 
-    // Carga dos elementos do localStorage
-    const activeLinkId = localStorage.getItem('activeLinkId');
-
-    // Remoção das classes ACTIVE dos links e spans
+    // Função para remover as classes ACTIVE dos links e spans
     function removeActiveClasses() {
         links.forEach(link => {
             link.querySelector('.links').classList.remove('active');
@@ -14,17 +11,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Adição da classe ACTIVE aos links e spans correspondentes
+    // Função para adicionar a classe ACTIVE aos links e spans correspondentes
     function addActiveClass(link) {
         link.querySelector('.links').classList.add('active');
         link.querySelector('.link-spans').classList.add('active');
     }
 
-    // Verificação de link ACTIVE
-    if (activeLinkId) {
-        const activeLink = document.querySelector(`.link-divs a[data-id="${activeLinkId}"]`);
-        if (activeLink) {
-            addActiveClass(activeLink);
+    // Verificação e atualização do link ativo com base na URL atual
+    let activeLinkUpdated = false;
+    links.forEach(link => {
+        if (link.href === window.location.href) {
+            localStorage.setItem('activeLinkId', link.getAttribute('data-id'));
+            addActiveClass(link);
+            activeLinkUpdated = true;
+        }
+    });
+
+    // Caso não tenha encontrado um link correspondente à URL atual
+    if (!activeLinkUpdated) {
+        const activeLinkId = localStorage.getItem('activeLinkId');
+        if (activeLinkId) {
+            const activeLink = document.querySelector(`.link-divs a[data-id="${activeLinkId}"]`);
+            if (activeLink) {
+                addActiveClass(activeLink);
+            }
         }
     }
 
