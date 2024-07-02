@@ -23,26 +23,16 @@
 /* Media query para dispositivos menores que 1024px e maiores que 768px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .link-divs {
-    display: flex;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    margin: auto;
   }
   .links {
     border-radius: 0%;
     border: none;
     text-align: center;
-    width: 70%;
+    margin: 0;
   }
-  .link-divs:not(:last-child)::after {
-    content: "";
-    display: block;
-    height: 100%;
-    width: 1px;
-    background-color: rgba(0, 6, 45, 0.7);
-    position: absolute;
-    right: 0;
+  .link-spans {
+    display: none;
   }
 }
 
