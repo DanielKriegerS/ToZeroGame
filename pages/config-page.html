@@ -22,25 +22,33 @@
         <div class="col-6 contents" id="configurations">
             <h3>Configurações do jogo: </h3>
             <form class="row">
-                <div class="col-6 form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+                <div class="col-7">
+                    <div class="col-12 form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+                    </div>
+                    <div class="col-12 form-group">
+                        <label for="quantia-numeros">Quantia de Números</label>
+                        <input type="number" class="form-control" id="quantia-numeros" min="3" max="8" placeholder="Digite um número entre 3 e 8">
+                    </div>
                 </div>
-
-                <div class="col-6 form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="tempo">
-                    <label class="form-check-label" for="tempo"><i class="fa-solid fa-stopwatch"></i></label>
+                <div class="col-3 contents form-group form-check" id="checkbox-div">
+                    <div id="timer-title">
+                        <h5>TIMER</h5>
+                    </div>
+                    <div id="timer-content">
+                        <input title="checkbox" type="checkbox" class="form-check-input" id="tempo">
+                        <label class="form-check-label" for="tempo"><i class="fa-solid fa-stopwatch"></i></label>    
+                    </div>
                 </div>
-
-                <div class="col-6 form-group">
-                    <label for="quantia-numeros">Quantia de Números</label>
-                    <input type="number" class="form-control" id="quantia-numeros" min="3" max="8" placeholder="Digite um número entre 3 e 8">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary mt-3">Iniciar Jogo</button>
                 </div>
-
-                <button type="submit" class="btn btn-primary">Iniciar Jogo</button>
             </form>
         </div>
-    </div> 
+    </div>
+    
+     
     <script src="../scripts/config-script.js"></script>
         
 </body>
