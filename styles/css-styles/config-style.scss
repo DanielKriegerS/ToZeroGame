@@ -26,6 +26,14 @@
 
 #tempo {
     margin-left: 0;
+    border: 2px inset $main-color;
+    color: $main-color;
+    z-index: 1;
+    position: relative;
+}
+
+#tempo:hover {
+    border-color: $bg-color-hover;
 }
 
 #nome {
