@@ -32,8 +32,13 @@
     position: relative;
 }
 
-#tempo:hover {
+#clock {
+    color: $not-selected-color;
+}
+
+#tempo:hover, #clock{
     border-color: $bg-color-hover;
+    cursor: pointer;
 }
 
 #nome {
