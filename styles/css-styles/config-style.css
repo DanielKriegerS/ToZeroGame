@@ -34,6 +34,10 @@
   color: rgba(240, 80, 90, 0.8);
 }
 
+#clock.active {
+  color: rgba(181, 241, 0, 0.8);
+}
+
 #tempo:hover, #clock {
   border-color: rgba(7, 113, 140, 0.4);
   cursor: pointer;

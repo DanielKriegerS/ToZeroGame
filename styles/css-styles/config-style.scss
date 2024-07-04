@@ -36,6 +36,10 @@
     color: $not-selected-color;
 }
 
+#clock.active {
+    color: $buttons-hover-color;
+}
+
 #tempo:hover, #clock{
     border-color: $bg-color-hover;
     cursor: pointer;
