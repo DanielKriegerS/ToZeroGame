@@ -1,3 +1,8 @@
+/* Importando variáveis */
+@import './variables';
+
+/* definições de caixas */
+
 #main-content {
     justify-content: center;
 }
@@ -8,6 +13,8 @@
     justify-content: right;
     margin: auto 0 auto auto;
 }
+
+/* definições de elementos */
 
 #tempo {
     margin-left: 0;
