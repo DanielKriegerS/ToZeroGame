@@ -17,6 +17,10 @@
   padding-left: 0.6em;
 }
 
+#button-div {
+  padding: 0;
+}
+
 /* definições de elementos */
 #tempo {
   margin-left: 0;
@@ -28,13 +32,13 @@
 
 #number-quantity-div > span {
   margin-right: 1em;
-  border: 3px inset rgba(0, 6, 45, 0.7);
+  border: 2px inset rgba(0, 6, 45, 0.7);
   display: inline-block;
   text-align: center;
   color: rgba(0, 6, 45, 0.7);
   font-weight: 700;
   border-radius: 30%;
-  background-color: rgba(4, 197, 246, 0.2);
+  background-color: rgba(103, 206, 6, 0.847);
 }
 
 #number-quantity-div > i {
@@ -46,6 +50,20 @@
 #number-quantity-div > i:hover {
   color: rgba(4, 39, 64, 0.5);
   cursor: pointer;
+}
+
+#button-div > button {
+  margin: auto;
+  color: rgba(0, 6, 45, 0.7);
+  background-color: rgba(103, 206, 6, 0.847);
+  font-weight: 700;
+  border-radius: 50px;
+  border: 3px outset rgba(0, 6, 45, 0.7);
+}
+
+#button-div > button:hover {
+  background-color: rgba(181, 241, 0, 0.8);
+  color: rgba(0, 6, 45, 0.7);
 }
 
 /*# sourceMappingURL=config-style.css.map */

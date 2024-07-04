@@ -18,6 +18,10 @@
     padding-left: .6em;
 }
 
+#button-div {
+    padding: 0;
+}
+
 /* definições de elementos */
 
 #tempo {
@@ -30,13 +34,13 @@
 
 #number-quantity-div > span {
     margin-right: 1em;
-    border: 3px inset $main-color;
+    border: 2px inset $main-color;
     display: inline-block;
     text-align: center;
     color: $main-color;
     font-weight: 700;
     border-radius: 30%;
-    background-color: $bg-content;
+    background-color: $content-color;
 }
 
 #number-quantity-div > i {
@@ -48,4 +52,18 @@
 #number-quantity-div > i:hover {
     color: $link-hover;
     cursor: pointer;
+}
+
+#button-div > button {
+    margin: auto;
+    color: $main-color;
+    background-color: $content-color;
+    font-weight: 700;
+    border-radius: 50px;
+    border: 3px outset $main-color;
+}
+
+#button-div > button:hover {
+    background-color: $buttons-hover-color;
+    color: $main-color;
 }
