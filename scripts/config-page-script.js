@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const plus = document.getElementById('plus');
     const minus = document.getElementById('minus');
 
-    localStorage.setItem('quantity', 3);
+    actualizeNumbersQuantity();
 
     // Adiciona evento de mudança ao checkbox
     checkbox.addEventListener('change', () => {
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             actualQuantity += 1;
             localStorage.setItem('quantity', actualQuantity);
             console.log(actualQuantity);
+            actualizeNumbersQuantity();
         } else {
             console.log('maximo atingido');
         }
@@ -48,8 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             actualQuantity -= 1;
             localStorage.setItem('quantity', actualQuantity);
+            actualizeNumbersQuantity();
             console.log(actualQuantity);
         }
     }
 
+    // Atualização de valores na tela
+    function actualizeNumbersQuantity() {
+        if (localStorage.getItem('quantity')) {
+            quantity.textContent = parseInt(localStorage.getItem('quantity'));
+        } else {
+            quantity.textContent = 3;
+        }
+    }
+
+    
 });
