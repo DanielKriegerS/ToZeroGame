@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Adição de listeners
     begin_btn.addEventListener('click', () => {
         validateName();
+        validateQuantity();
     })
 
     localStorage.setItem('clock', 'inative');
@@ -84,8 +85,21 @@ document.addEventListener('DOMContentLoaded', () => {
             window.alert('Nome não informado!');
         }
 
-        if (nameValue.lentgh < 3) {
+        if (nameValue.length < 3) {
             window.alert('Nome muito curto!');
         }
+    }
+
+    function validateQuantity() {
+        if (parseInt(localStorage.getItem('quantity')) < 3) {
+            window.alert('Poucos números, selecione mais!');
+            localStorage.setItem('quantity', 3);
+        }
+
+        if (parseInt(localStorage.getItem('quantity')) > 4) {
+            window.alert('Números demais, selecione menos!');
+            localStorage.setItem('quantity', 3);
+        }
+    
     }
 });
