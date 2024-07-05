@@ -7,14 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const plus = document.getElementById('plus');
     const minus = document.getElementById('minus');
 
+    localStorage.setItem('clock', 'inative');
+
     actualizeNumbersQuantity();
 
     // Adiciona evento de mudança ao checkbox
     checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
            clock.classList.add('active');
+           localStorage.setItem('clock', 'active');
+
         } else {
            clock.classList.remove('active');
+           localStorage.setItem('clock', 'inative');
        }
     });
 
@@ -63,5 +68,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    
+
 });
