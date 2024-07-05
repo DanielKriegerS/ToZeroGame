@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const plus = document.getElementById('plus');
     const minus = document.getElementById('minus');
 
+    const name = document.getElementById('name');
+    const begin_btn = document.getElementById('begin-game');
+
+    // Adição de listeners
+    begin_btn.addEventListener('click', () => {
+        validateName();
+    })
+
     localStorage.setItem('clock', 'inative');
 
     actualizeNumbersQuantity();
@@ -68,5 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Validação de dados
+    function validateName() {
+        nameValue = name.value;
 
+        if (nameValue === "") {
+            window.alert('Nome não informado!');
+        }
+
+        if (nameValue.lentgh < 3) {
+            window.alert('Nome muito curto!');
+        }
+    }
 });
