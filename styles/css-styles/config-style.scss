@@ -71,6 +71,10 @@
     cursor: pointer;
 }
 
+#number-quantity-div > i.limit {
+    color: $not-selected-color;   
+}
+
 #button-div > button {
     margin: auto;
     color: $main-color;

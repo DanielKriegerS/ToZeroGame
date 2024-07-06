@@ -69,6 +69,10 @@
   cursor: pointer;
 }
 
+#number-quantity-div > i.limit {
+  color: rgba(240, 80, 90, 0.8);
+}
+
 #button-div > button {
   margin: auto;
   color: rgba(0, 6, 45, 0.7);
