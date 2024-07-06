@@ -16,18 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Adição de listeners
     begin_btn.addEventListener('click', () => {
-        validateName();
-        validateQuantity();
-    })
+        if (validateName() && validateQuantity()) {
+            routeToGame();
+        } 
+    });
 
     localStorage.setItem('clock', 'inative');
-
 
     checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
            clock.classList.add('active');
            localStorage.setItem('clock', 'active');
-
         } else {
            clock.classList.remove('active');
            localStorage.setItem('clock', 'inative');
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     minus.addEventListener('click', function(){
         minusOneNumber();
         verifyLimit();
-    })
+    });
 
     // Efetua operações de mais e menos
     function plusOneNumber () {
@@ -81,31 +80,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Validação de dados
     function validateName() {
-        nameValue = name.value;
+        const nameValue = name.value;
 
         if (nameValue === "") {
             alertUser("name-blank");
-            return;
+            return false;
         }
 
         if (nameValue.length < 3) {
             alertUser("name-short");
-            return;
+            return false;
         }
 
         localStorage.setItem('username', nameValue);
+        return true;
     }
 
     function validateQuantity() {
-        if (parseInt(localStorage.getItem('quantity')) < 3) {
+        const actualQuantity = parseInt(localStorage.getItem('quantity'), 10);
+
+        if (actualQuantity < 3) {
             window.alert('Como você alterou isso?');
             localStorage.setItem('quantity', 3);
+            return false;
         }
 
-        if (parseInt(localStorage.getItem('quantity')) > 5) {
+        if (actualQuantity > 5) {
             localStorage.setItem('quantity', 3);
             window.alert('Como você alterou isso?');
+            return false;
         }
+        return true;
     }
 
     function verifyLimit() {
@@ -123,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minus.classList.remove('limit');
         }
     }
+
     // Alertas e mensagens
     function alertUser(typeErr) {
         if (typeErr === "numbers-plus") {
@@ -140,5 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeErr === "name-short") {
            window.alert('nome deve conter no mínimo 3 caracteres');
         }
+    }
+
+    // Roteamento para tela do jogo
+    function routeToGame() {
+        window.location.href = '../index.html';
     }
 });
