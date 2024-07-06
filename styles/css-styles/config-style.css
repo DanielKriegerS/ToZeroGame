@@ -71,6 +71,7 @@
 
 #number-quantity-div > i.limit {
   color: rgba(240, 80, 90, 0.8);
+  cursor: not-allowed;
 }
 
 #button-div > button {
