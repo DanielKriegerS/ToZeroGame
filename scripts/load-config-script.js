@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (quantityOfNumbers) {
         createButtons(parseInt(quantityOfNumbers));
     } else {
-        console.error('Quantidade de botões não encontrada no localStorage.');
+        localStorage.setItem('quantity', 3);
+        createButtons(3);
     }
 
 
