@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = document.getElementById('name');
     const begin_btn = document.getElementById('begin-game');
 
+    actualizeNumbersQuantity();
+
+
     // Adição de listeners
     begin_btn.addEventListener('click', () => {
         validateName();
@@ -18,9 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     localStorage.setItem('clock', 'inative');
 
-    actualizeNumbersQuantity();
 
-    // Adiciona evento de mudança ao checkbox
     checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
            clock.classList.add('active');
@@ -32,20 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
        }
     });
 
-    // Adição de listenners
     plus.addEventListener('click', function() {
         plusOneNumber();
+        verifyLimit();
     });  
 
     minus.addEventListener('click', function(){
         minusOneNumber();
+        verifyLimit();
     })
 
     // Efetua operações de mais e menos
     function plusOneNumber () {
         let actualQuantity = parseInt(localStorage.getItem('quantity'), 10);
 
-        if(actualQuantity < 4) {
+        if(actualQuantity < 5) {
             actualQuantity += 1;
             localStorage.setItem('quantity', actualQuantity);
             actualizeNumbersQuantity();
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let actualQuantity = parseInt(localStorage.getItem('quantity'), 10);
 
         if(actualQuantity == 3) {
-            alertUser("numbers-minus")
+            alertUser("numbers-minus");
         } else {
             actualQuantity -= 1;
             localStorage.setItem('quantity', actualQuantity);
@@ -73,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             quantity.textContent = 3;
         }
+        verifyLimit();
     }
 
     // Validação de dados
@@ -94,29 +97,43 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('quantity', 3);
         }
 
-        if (parseInt(localStorage.getItem('quantity')) > 4) {
+        if (parseInt(localStorage.getItem('quantity')) > 5) {
             localStorage.setItem('quantity', 3);
             window.alert('Como você alterou isso?');
         }
-    
     }
 
+    function verifyLimit() {
+        const actualQuantity = parseInt(localStorage.getItem('quantity'), 10);
+
+        if (actualQuantity >= 5) {
+            plus.classList.add('limit');
+        } else {
+            plus.classList.remove('limit');
+        }
+
+        if (actualQuantity <= 3) {
+            minus.classList.add('limit');
+        } else {
+            minus.classList.remove('limit');
+        }
+    }
     // Alertas e mensagens
     function alertUser(typeErr) {
-         if (typeErr === "numbers-plus") {
-            window.alert('máximo atingido');
-         }
+        if (typeErr === "numbers-plus") {
+           window.alert('máximo atingido');
+        }
 
-         if (typeErr === "numbers-minus") {
-            window.alert('mínimo atingido');
-         }
+        if (typeErr === "numbers-minus") {
+           window.alert('mínimo atingido');
+        }
 
-         if (typeErr === "name-blank") {
-            window.alert('nome não informado');
-         }
+        if (typeErr === "name-blank") {
+           window.alert('nome não informado');
+        }
 
-         if (typeErr === "name-short") {
-            window.alert('nome deve conter no mínimo 3 caracteres');
-         }
+        if (typeErr === "name-short") {
+           window.alert('nome deve conter no mínimo 3 caracteres');
+        }
     }
 });
