@@ -48,10 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if(actualQuantity < 4) {
             actualQuantity += 1;
             localStorage.setItem('quantity', actualQuantity);
-            console.log(actualQuantity);
             actualizeNumbersQuantity();
         } else {
-            console.log('maximo atingido');
+            alertUser("numbers-plus");
         }
     }
 
@@ -59,12 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let actualQuantity = parseInt(localStorage.getItem('quantity'), 10);
 
         if(actualQuantity == 3) {
-            console.log('minimo atingido');
+            alertUser("numbers-minus")
         } else {
             actualQuantity -= 1;
             localStorage.setItem('quantity', actualQuantity);
             actualizeNumbersQuantity();
-            console.log(actualQuantity);
         }
     }
 
@@ -82,24 +80,43 @@ document.addEventListener('DOMContentLoaded', () => {
         nameValue = name.value;
 
         if (nameValue === "") {
-            window.alert('Nome não informado!');
+            alertUser("name-blank")
         }
 
         if (nameValue.length < 3) {
-            window.alert('Nome muito curto!');
+            alertUser("name-short");
         }
     }
 
     function validateQuantity() {
         if (parseInt(localStorage.getItem('quantity')) < 3) {
-            window.alert('Poucos números, selecione mais!');
+            window.alert('Como você alterou isso?');
             localStorage.setItem('quantity', 3);
         }
 
         if (parseInt(localStorage.getItem('quantity')) > 4) {
-            window.alert('Números demais, selecione menos!');
             localStorage.setItem('quantity', 3);
+            window.alert('Como você alterou isso?');
         }
     
+    }
+
+    // Alertas e mensagens
+    function alertUser(typeErr) {
+         if (typeErr === "numbers-plus") {
+            window.alert('máximo atingido');
+         }
+
+         if (typeErr === "numbers-minus") {
+            window.alert('mínimo atingido');
+         }
+
+         if (typeErr === "name-blank") {
+            window.alert('nome não informado');
+         }
+
+         if (typeErr === "name-short") {
+            window.alert('nome deve conter no mínimo 3 caracteres');
+         }
     }
 });
