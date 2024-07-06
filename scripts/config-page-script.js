@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     actualizeNumbersQuantity();
 
+    localStorage.setItem('username', '');
 
     // Adição de listeners
     begin_btn.addEventListener('click', () => {
@@ -83,12 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
         nameValue = name.value;
 
         if (nameValue === "") {
-            alertUser("name-blank")
+            alertUser("name-blank");
+            return;
         }
 
         if (nameValue.length < 3) {
             alertUser("name-short");
+            return;
         }
+
+        localStorage.setItem('username', nameValue);
     }
 
     function validateQuantity() {
