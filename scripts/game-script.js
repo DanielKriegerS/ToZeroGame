@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', () => {
 //*                         ELEMENTOS GERAIS DO SISTEMA                         *//
 //*                                                                             *//
 // carga dos elementos do DOM                                                    //
@@ -405,3 +406,4 @@ function initializeSystem() {
 
 // IN                                                                           //
 initializeSystem();
+})
