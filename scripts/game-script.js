@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 const randomNumbers = document.querySelectorAll('.random-numbers');
 const selectedNumbers = document.querySelectorAll('.selected-numbers');
 const selectedOperation = document.querySelector('.selected-operation');
-const operations = document.querySelectorAll('.op-button');
 const resultSpan = document.getElementById('result');
 const numbersHeader = document.getElementById('numbers-header');
 const op_buttons = document.querySelectorAll('.op-button');
