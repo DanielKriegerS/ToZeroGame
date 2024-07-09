@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Carga dos elementos do DOM   
     const checkbox = document.getElementById('tempo');
     const clock = document.getElementById('clock');
+    const saveName_CB = document.getElementById('save');
 
     const quantity = document.getElementById('quantity');
     const plus = document.getElementById('plus');
@@ -12,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     actualizeNumbersQuantity();
 
-    localStorage.setItem('username', '');
+    if (localStorage.getItem('username') === 'false') {
+        localStorage.setItem('username', '');
+    }
 
     // Adição de listeners
     begin_btn.addEventListener('click', () => {
@@ -92,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         }
 
-        localStorage.setItem('username', nameValue);
+        saveName();
         return true;
     }
 
@@ -145,6 +148,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (typeErr === "name-short") {
            window.alert('nome deve conter no mínimo 3 caracteres');
+        }
+    
+    }
+
+    // funções de consistência
+    function saveName(username) {
+        localStorage.setItem('username', username);
+        rememberName();
+    }
+
+
+    function rememberName() {
+        if(saveName_CB.checked) {
+            localStorage.setItem('remember-name', 'true');
+        } else {
+            localStorage.setItem('remember-name', 'false');
         }
     }
 
