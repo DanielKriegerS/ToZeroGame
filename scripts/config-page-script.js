@@ -8,13 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const plus = document.getElementById('plus');
     const minus = document.getElementById('minus');
 
-    const name = document.getElementById('name');
+    const username = document.getElementById('name');
     const begin_btn = document.getElementById('begin-game');
 
     actualizeNumbersQuantity();
 
-    if (localStorage.getItem('username') === 'false') {
+    if (localStorage.getItem('remember-name') == 'false') {
         localStorage.setItem('username', '');
+        console.log("aqui");
     }
 
     // Adição de listeners
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Validação de dados
     function validateName() {
-        const nameValue = name.value;
+        const nameValue = username.value;
 
         if (nameValue === "") {
             alertUser("name-blank");
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         }
 
-        saveName();
+        saveName(nameValue);
         return true;
     }
 
