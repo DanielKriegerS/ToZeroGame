@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (localStorage.getItem('remember-name') == 'false') {
         localStorage.setItem('username', '');
-        console.log("aqui");
     }
 
     // Adição de listeners
