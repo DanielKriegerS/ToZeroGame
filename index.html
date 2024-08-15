@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="styles/css-styles/game-style.css">
     <link rel="stylesheet" type="text/css" href="styles/css-styles/game--media-styles.css">
     <link rel="stylesheet" type="text/css" href="styles/css-styles/main--media-styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/css-styles/clock-style.css">
 
 </head>
 <body class="container-fluid">
@@ -53,9 +54,12 @@
                 </div>
                 
                 <div class="contents col-lg-4 mx-auto" id="config-feedback">
-                    <h1>aqui</h1>
+                    <div class="clock">
+                        <div class="hand" id="second-hand"></div>
+                        <div class="clock-numbers" id="clock-numbers"></div>
+                    </div>
                 </div>
-
+                
                 <div class="contents col-lg-7" id="selection">
                     <div class="row">
                         <h2>Seleção:</h2>
@@ -96,5 +100,6 @@
     <script src="scripts/load-config-script.js"></script>
     <script src="scripts/game-script.js"></script>
     <script src="scripts/main-script.js"></script>
+    <script src="scripts/clock-script.js"></script>
 </body>
 </html>
