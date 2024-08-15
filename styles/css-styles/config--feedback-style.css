@@ -23,6 +23,13 @@
   transition: transform 0.05s;
 }
 
+#timer {
+  text-align: center;
+  margin: auto;
+  border: 1px solid black;
+}
+
+/* definições de elementos */
 .hand::after {
   content: "";
   display: block;
@@ -49,6 +56,11 @@
   text-align: center;
   line-height: 2em;
   transform-origin: center;
+}
+
+#time {
+  font-size: 10em;
+  font-weight: bolder;
 }
 
 /*# sourceMappingURL=config--feedback-style.css.map */
