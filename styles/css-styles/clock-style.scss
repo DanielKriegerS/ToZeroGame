@@ -1,0 +1,51 @@
+/* importação */
+@import './variables.scss';
+
+/* definições de caixas */
+.clock {
+    position: relative;
+    width: 10em;
+    height:10em;
+    border: 5px solid $main-color;
+    border-radius: 50%;
+    background-color: $bg-color-hover;
+}
+
+.hand {
+    position: absolute;
+    width: 3px;
+    height: 45%;
+    background-color: blue;
+    top: 27%;
+    left: 49%;
+    transform-origin: 100%;
+    transition: transform 0.05s;
+}
+
+.hand::after {
+    content: '';
+    display: block;
+    height: 20%;
+    width: 3px;
+    background-color: green;
+    position: absolute;
+}
+
+.clock-numbers {
+    position: absolute;
+    top: 89%;
+    left: 89.5%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.clock-number {
+    position: absolute;
+    width: 2em; 
+    height: 2em; 
+    text-align: center;
+    line-height: 2em;
+    transform-origin: center;
+}
