@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* importação */
-/* variáveis */
+/* global variables */
+/*clock variables*/
 /* Definições de caixas */
 #main-content {
   display: flex;

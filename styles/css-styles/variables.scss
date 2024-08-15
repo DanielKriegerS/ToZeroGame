@@ -1,4 +1,4 @@
-/* variáveis */
+/* global variables */
 $main-color: rgba(0, 6, 45, 0.7);
 $bg-color: rgba(250, 249, 248, 0.9);
 $link-hover: rgba(4, 39, 64, 0.5);
@@ -7,3 +7,8 @@ $op-color: rgba(56, 113, 3, 0.5);
 $buttons-hover-color: rgba(181, 241, 0, 0.8);
 $content-color: rgba(103, 206, 6, 0.847);
 $not-selected-color: rgba(240, 80, 90, 0.8);
+
+/*clock variables*/
+$clock-bg: rgba(90, 180, 190, .4);
+$clock-pointer: rgba(3, 28, 91, 0.8);
+$clock-pointer-head: rgba(200, 20, 20, .7)
