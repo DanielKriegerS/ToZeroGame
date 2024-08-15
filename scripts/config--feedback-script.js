@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let seconds = 0;
     const secondHand = document.getElementById('second-hand');
     const numbersContainer = document.getElementById('clock-numbers');
+    const secondsSpan = document.getElementById('time');
+
+    let timer = 60;
 
     const numbers = ['3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '1', '2'];
 
@@ -20,6 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const tipRotation = degrees % 360;
         secondHand.style.setProperty('--tip-rotation', `${tipRotation}deg`);
         seconds = (seconds + 1) % 60;
+        updateTimer();
+    }
+
+    function updateTimer() {
+        secondsSpan.textContent = timer;
+        timer -= 1;
+        console.log(timer)
     }
 
     setInterval(updateClock, 1000);
