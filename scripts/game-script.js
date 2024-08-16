@@ -11,13 +11,14 @@ const op_buttons = document.querySelectorAll('.op-button');
 document.getElementById('cancel-operation').addEventListener('click', clear, removeActiveClassesFromButtons);
 document.getElementById('execute-operation').addEventListener('click', executeOperation, removeActiveClassesFromButtons);
 document.getElementById('restart-game').addEventListener('click', restartGame, removeActiveClassesFromButtons);
+const time = document.getElementById('time');
 
 // variáveis globais                                                            //
 let selectedNumbersValues = [];
 let randomNumbersValues = [];
 let firstNumbers = [];
 let headerOp = 1;
-
+let endByTimer = false;
 
 // fábrica de números aleatórios entre 1 e 9                                    //
 function randomNumber() {
@@ -230,6 +231,8 @@ function checkEndGame() {
     if (numbers == 0) {status = 1;}
     if (numbers == 1) {status = 2;}
 
+    if (endByTimer == true) {status = 3;}
+
     switch(status) {
         case 1:
             window.alert("Parabéns, você venceu!");
@@ -238,6 +241,12 @@ function checkEndGame() {
             break;
         case 2:
             window.alert("Que pena, foi por pouco!");
+            initializeSystem();
+            changeHeader(1);
+            break;
+        case 3:
+            window.alert("Que pena, o tempo acabou!");
+            restartTimer();
             initializeSystem();
             changeHeader(1);
             break;
@@ -259,6 +268,13 @@ function restartGame() {
         i++;
     });
 }
+
+// Reinicia o timer
+function restartTimer() {
+    const initialTimer = parseInt(localStorage.getItem('max-timer'));
+    time.textContent = initialTimer;
+}
+
 
 //*                             FUNÇÕES DE LIMPEZA                             *//
 //*                                                                            *//   
@@ -388,6 +404,8 @@ function initializeHeader() {
     }
 }
 
+setInterval(verifyEndTimer, 1000);
+
 // inicializa os botões                                                         //
 function initializeButtons() {
     initializeOperations();
@@ -403,6 +421,18 @@ function initializeSystem() {
     activateOpButtons()
 }
 
+// finalização do sistema por tempo                                             //
+function verifyEndTimer() {
+    let actualTime = parseInt(time.textContent);
+
+    if (actualTime <= 0) {
+        endByTimer = true;
+        checkEndGame();
+    }
+}
+
+
 // IN                                                                           //
 initializeSystem();
 })
+
