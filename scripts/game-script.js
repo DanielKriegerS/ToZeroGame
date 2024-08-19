@@ -429,6 +429,8 @@ function verifyEndTimer() {
         endByTimer = true;
         checkEndGame();
     }
+    
+    endByTimer = false;
 }
 
 
