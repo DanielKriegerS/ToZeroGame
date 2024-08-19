@@ -30,11 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateTimer() {
         if (timer < 0) {
             timer = parseInt(localStorage.getItem('max-timer')); 
+            seconds = 0;
             return; 
         }
         secondsSpan.textContent = timer;
         timer -= 1;
-    }    
+    }
 
     setInterval(updateClock, 1000);
 });
