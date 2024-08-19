@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const secondHand = document.getElementById('second-hand');
     const numbersContainer = document.getElementById('clock-numbers');
     const secondsSpan = document.getElementById('time');
+    const name = document.getElementById('name');
+
+    let choicedName = localStorage.getItem('username');
 
     let timer = 60;
     localStorage.setItem('max-timer', timer);
@@ -18,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
         numbersContainer.appendChild(numberElement);
     });
 
+    setName();
+
+    
     function updateClock() {
         const degrees = (seconds / 60) * 360;
         secondHand.style.transform = `rotate(${degrees}deg)`;
@@ -35,6 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         secondsSpan.textContent = timer;
         timer -= 1;
+    }
+
+    function setName() {
+        name.textContent = choicedName;
+        console.log(choicedName)
     }
 
     setInterval(updateClock, 1000);
