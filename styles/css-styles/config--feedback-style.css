@@ -3,6 +3,13 @@
 /* global variables */
 /*clock variables*/
 /* definições de caixas */
+#config-feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0;
+}
+
 .clock {
   position: relative;
   width: 10em;
@@ -26,7 +33,6 @@
 #timer {
   text-align: center;
   margin: auto;
-  border: 1px solid black;
 }
 
 /* definições de elementos */
@@ -62,6 +68,13 @@
   font-size: 5em;
   font-weight: bolder;
   max-width: 100%;
+}
+
+#nameSect {
+  text-align: center;
+  justify-content: center;
+  margin: 0 0 0.3em 0;
+  width: 100%;
 }
 
 /*# sourceMappingURL=config--feedback-style.css.map */
