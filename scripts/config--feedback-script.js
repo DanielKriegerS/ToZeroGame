@@ -5,8 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const secondsSpan = document.getElementById('time');
     const name = document.getElementById('name');
     const time = document.getElementById('time');
+    const timerDiv = document.getElementById('timer');
+    const clock = document.getElementById('clock');
 
     let choicedName = localStorage.getItem('username');
+    let isClockActive;
     let endedGame;
 
     let timer = 60;
@@ -76,14 +79,25 @@ document.addEventListener('DOMContentLoaded', () => {
             updateEndGame();
         }, 1000);
     }
+
+    function verifyActivesArgs() {
+        let clockStatus = localStorage.getItem('clock');
+        isClockActive = clockStatus == 'active' ? true:false;
+    }
+
+    function setActivation() {
+        isClockActive ? initializeClock() : desativateClock();
+    }
+
+    function desativateClock() {
+        timerDiv.classList.add('not-active');
+        clock.classList.add('not-active');
+    }
     
     function initializeSystem() {
-        let clockStatus = localStorage.getItem('clock');
-        let isClockActive = clockStatus == 'active' ? true:false;
-
-        if (isClockActive) {
-            initializeClock();
-        }
+        verifyActivesArgs();
+        setActivation();
+        
     }
 
     initializeSystem();
