@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function nearEndTime(ending) {
-        console.log(ending);
         ending ? time.classList.add('ending-time') : time.classList.remove('ending-time');
     }
 
