@@ -79,3 +79,11 @@
 .ending-time {
     color: $ending-time-color;
 }
+
+.not-active > .clock, .not-active {
+    color: $not-active-color;
+}
+
+.not-active > .clock {
+    background-color: $not-active-color;
+}

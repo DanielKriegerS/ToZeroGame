@@ -81,4 +81,12 @@
   color: rgba(211, 22, 1, 0.566);
 }
 
+.not-active > .clock, .not-active {
+  color: rgba(180, 190, 190, 0.3);
+}
+
+.not-active > .clock {
+  background-color: rgba(180, 190, 190, 0.3);
+}
+
 /*# sourceMappingURL=config--feedback-style.css.map */
