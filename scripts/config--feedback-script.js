@@ -70,9 +70,22 @@ document.addEventListener('DOMContentLoaded', () => {
         ending ? time.classList.add('ending-time') : time.classList.remove('ending-time');
     }
 
-    setInterval(() => {
-        updateClock();
-        updateEndGame();
-    }, 1000);
+    function initializeClock() {
+        setInterval(() => {
+            updateClock();
+            updateEndGame();
+        }, 1000);
+    }
+    
+    function initializeSystem() {
+        let clockStatus = localStorage.getItem('clock');
+        let isClockActive = clockStatus == 'active' ? true:false;
+
+        if (isClockActive) {
+            initializeClock();
+        }
+    }
+
+    initializeSystem();
 
 });
