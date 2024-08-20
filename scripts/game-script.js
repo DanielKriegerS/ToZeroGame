@@ -18,7 +18,7 @@ let selectedNumbersValues = [];
 let randomNumbersValues = [];
 let firstNumbers = [];
 let headerOp = 1;
-let endByTimer = false;
+let endedGame = false;
 
 // fábrica de números aleatórios entre 1 e 9                                    //
 function randomNumber() {
@@ -231,26 +231,29 @@ function checkEndGame() {
     if (numbers == 0) {status = 1;}
     if (numbers == 1) {status = 2;}
 
-    if (endByTimer == true) {status = 3;}
+    if (endedGame == true) {status = 3;}
 
     switch(status) {
         case 1:
             window.alert("Parabéns, você venceu!");
+            localStorage.setItem('ended-game', 'true');
             initializeSystem();
             changeHeader(1);
             break;
         case 2:
             window.alert("Que pena, foi por pouco!");
+            localStorage.setItem('ended-game', 'true');
             initializeSystem();
             changeHeader(1);
             break;
         case 3:
             window.alert("Que pena, o tempo acabou!");
-            restartTimer();
+            localStorage.setItem('ended-game', 'true');
             initializeSystem();
             changeHeader(1);
             break;
         default:
+            localStorage.setItem('ended-game', 'false');
             return;
     }
 }
@@ -268,13 +271,6 @@ function restartGame() {
         i++;
     });
 }
-
-// Reinicia o timer
-function restartTimer() {
-    const initialTimer = parseInt(localStorage.getItem('max-timer'));
-    time.textContent = initialTimer;
-}
-
 
 //*                             FUNÇÕES DE LIMPEZA                             *//
 //*                                                                            *//   
@@ -418,7 +414,7 @@ function initializeSystem() {
     displayInitialNumbers();
     initializeButtons();
     initializeHeader();
-    activateOpButtons()
+    activateOpButtons();
 }
 
 // finalização do sistema por tempo                                             //
@@ -426,11 +422,11 @@ function verifyEndTimer() {
     let actualTime = parseInt(time.textContent);
 
     if (actualTime <= 0) {
-        endByTimer = true;
+        endedGame = true;
         checkEndGame();
     }
     
-    endByTimer = false;
+    endedGame = false;
 }
 
 

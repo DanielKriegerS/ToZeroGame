@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const numbersContainer = document.getElementById('clock-numbers');
     const secondsSpan = document.getElementById('time');
     const name = document.getElementById('name');
+    const time = document.getElementById('time');
 
     let choicedName = localStorage.getItem('username');
+    let endedGame;
 
     let timer = 60;
     localStorage.setItem('max-timer', timer);
@@ -34,19 +36,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTimer() {
-        if (timer < 0) {
-            timer = parseInt(localStorage.getItem('max-timer')); 
+        if (timer < 0 || endedGame == true) {
+            timer = parseInt(localStorage.getItem('max-timer'));
+            localStorage.setItem('ended-game', 'false');
             seconds = 0;
             return; 
         }
+
+        if (timer <= 10) {
+            nearEndTime(true);
+        } else {
+            nearEndTime(false);
+        }
+
         secondsSpan.textContent = timer;
         timer -= 1;
     }
 
     function setName() {
         name.textContent = choicedName;
-        console.log(choicedName)
     }
 
-    setInterval(updateClock, 1000);
+    function updateEndGame() {
+        if (localStorage.getItem('ended-game') === 'true') {
+            endedGame = true;
+            updateTimer();
+        } 
+
+        endedGame = false;
+    }
+
+    function nearEndTime(ending) {
+        console.log(ending);
+        ending ? time.classList.add('ending-time') : time.classList.remove('ending-time');
+    }
+
+    setInterval(() => {
+        updateClock();
+        updateEndGame();
+    }, 1000);
+
 });
