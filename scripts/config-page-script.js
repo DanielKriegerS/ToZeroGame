@@ -132,6 +132,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function verifySavedName() {
+        const rememberName = localStorage.getItem('remember-name');
+        let isToRememberName = rememberName == 'true' ? true:false;
+
+        if(isToRememberName) {
+            const savedName = localStorage.getItem('username');
+            username.value = savedName;
+            saveName_CB.checked = true;
+        }
+    }
+
     // Alertas e mensagens
     function alertUser(typeErr) {
         if (typeErr === "numbers-plus") {
@@ -155,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // funções de consistência
     function saveName(username) {
         localStorage.setItem('username', username);
+        localStorage.setItem('name-seted', 'true');
         rememberName();
     }
 
@@ -171,4 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function routeToGame() {
         window.location.href = '../index.html';
     }
+
+    // verifica se deve manter o nome
+    verifySavedName();
 });

@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const timerDiv = document.getElementById('timer');
     const clock = document.getElementById('clock');
 
-    let choicedName = localStorage.getItem('username');
+    let username = '';
+    let isToRememberName;
     let isClockActive;
     let endedGame;
 
@@ -25,9 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         numberElement.textContent = number;
         numbersContainer.appendChild(numberElement);
     });
-
-    setName();
-
     
     function updateClock() {
         const degrees = (seconds / 60) * 360;
@@ -57,7 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setName() {
-        name.textContent = choicedName;
+        if (isToSetName && !isToRememberName) {
+            name.textContent = username;
+            localStorage.setItem('username', '');
+        } 
+
+        if (isToRememberName && username !== '') {
+            name.textContent = username;
+        }
+
+        if (!isToSetName && !isToRememberName) {
+            name.textContent = 'NoNamed';
+            localStorage.setItem('username', '');
+        }
+
+        localStorage.setItem('name-seted', 'false');
+        return;
     }
 
     function updateEndGame() {
@@ -81,8 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function verifyActivesArgs() {
+        // clock
         let clockStatus = localStorage.getItem('clock');
         isClockActive = clockStatus == 'active' ? true:false;
+        
+        // name
+        let choicedName = localStorage.getItem('username');
+        let isNameSeted = localStorage.getItem('name-seted');
+        let rememberName = localStorage.getItem('remember-name');
+        isToRememberName = rememberName == 'true' ? true:false;
+        isToSetName = isNameSeted == 'true' ? true:false;
+        username = choicedName == '' ? '':choicedName;
+    
     }
 
     function setActivation() {
@@ -97,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initializeSystem() {
         verifyActivesArgs();
         setActivation();
-        
+        setName();
     }
 
     initializeSystem();
