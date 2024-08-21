@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!isToSetName && !isToRememberName) {
             name.textContent = 'NoNamed';
+            name.classList.add('not-active')
             localStorage.setItem('username', '');
         }
 
