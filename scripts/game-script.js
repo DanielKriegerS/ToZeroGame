@@ -160,6 +160,23 @@ function activateOpButtons() {
 
 }
 
+function verifyConfig() {
+    let configured = localStorage.getItem('configured');
+    let isConfigured = configured == 'true' ? true:false;
+    
+    if (!isConfigured) {
+        let goToConfig = confirm("Configurações não encontradas. Deseja configurar?");
+
+        if (goToConfig) {
+            window.location.href = "./pages/config-page.html";
+        }
+    
+        return;
+    }
+
+    localStorage.setItem('configured', 'false');
+}
+
 //*                     EFETUA SELEÇÃO DE ELEMENTOS                            *//
 //*                                                                            *//
 // Adiciona número à seleção                                                    //
@@ -256,6 +273,18 @@ function checkEndGame() {
             localStorage.setItem('ended-game', 'false');
             return;
     }
+}
+
+// finalização do sistema por tempo                                             //
+function verifyEndTimer() {
+    let actualTime = parseInt(time.textContent);
+
+    if (actualTime <= 0) {
+        endedGame = true;
+        checkEndGame();
+    }
+    
+    endedGame = false;
 }
 
 // Reinicia o jogo
@@ -410,23 +439,12 @@ function initializeButtons() {
 
 // inicialização do sistema                                                     //
 function initializeSystem() {
+    verifyConfig();
     generateNumbers();
     displayInitialNumbers();
     initializeButtons();
     initializeHeader();
     activateOpButtons();
-}
-
-// finalização do sistema por tempo                                             //
-function verifyEndTimer() {
-    let actualTime = parseInt(time.textContent);
-
-    if (actualTime <= 0) {
-        endedGame = true;
-        checkEndGame();
-    }
-    
-    endedGame = false;
 }
 
 
