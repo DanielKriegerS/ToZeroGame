@@ -20,7 +20,7 @@ body {
 #header {
   flex-direction: column;
   align-items: center;
-  margin-top: 2em;
+  margin-top: 0.5em;
 }
 
 #navigation {
@@ -34,7 +34,7 @@ body {
 .contents {
   border: 0.1em solid;
   margin-top: 1em;
-  padding: 1em;
+  padding: 0.5em;
   max-height: 80%;
   border-radius: 1em;
 }
