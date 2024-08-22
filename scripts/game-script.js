@@ -162,7 +162,7 @@ function activateOpButtons() {
 
 function verifyConfig() {
     let configured = localStorage.getItem('configured');
-    let isConfigured = configured == 'true' ? true:false;
+    isConfigured = configured == 'true' ? true:false;
     
     if (!isConfigured) {
         let goToConfig = confirm("Configurações não encontradas. Deseja configurar?");
