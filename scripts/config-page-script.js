@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const username = document.getElementById('name');
     const begin_btn = document.getElementById('begin-game');
 
+    localStorage.setItem('configured', 'false');
+
     actualizeNumbersQuantity();
 
     if (localStorage.getItem('remember-name') == 'false') {
@@ -182,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Roteamento para tela do jogo
     function routeToGame() {
         window.location.href = '../index.html';
+        localStorage.setItem('configured', 'true');
     }
 
     // verifica se deve manter o nome
