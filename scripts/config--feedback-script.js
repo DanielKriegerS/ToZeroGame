@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setName() {
         if (isToSetName && !isToRememberName) {
             name.textContent = username;
-            localStorage.setItem('username', '');
+            localStorage.setItem('username', 'not-remember');
         } 
 
         if (isToRememberName && username !== '') {
