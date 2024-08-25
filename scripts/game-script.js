@@ -154,7 +154,6 @@ function activateOpButtons() {
     op_buttons.forEach(operation => {
         operation.addEventListener('click', () => {
             addActiveClass(operation);
-            localStorage.setItem('activeButtonId', operation.getAttribute('data-id'));
         });
     });
 
@@ -162,19 +161,23 @@ function activateOpButtons() {
 
 function verifyConfig() {
     let configured = localStorage.getItem('configured');
-    isConfigured = configured == 'true' ? true:false;
+    let isConfigured = configured == 'true' ? true:false;
+    let username = localStorage.getItem('username');
+
+    if (isConfigured && username === '') {
+        localStorage.setItem('configured', 'false');
+    }
     
     if (!isConfigured) {
         let goToConfig = confirm("Configurações não encontradas. Deseja configurar?");
 
         if (goToConfig) {
             window.location.href = "./pages/config-page.html";
+        } else {
+            localStorage.setItem('configured', 'false');
         }
-    
-        return;
     }
 
-    localStorage.setItem('configured', 'false');
 }
 
 //*                     EFETUA SELEÇÃO DE ELEMENTOS                            *//
@@ -290,6 +293,7 @@ function verifyEndTimer() {
 // Reinicia o jogo
 function restartGame() {
     removeActiveClassesFromButtons();
+    startGame();
 
     let i = 0;
     randomNumbers.forEach(button => {
@@ -437,9 +441,15 @@ function initializeButtons() {
     initializeNumbers();
 }
 
+// inicializa o jogo
+function startGame() {
+    localStorage.setItem('ended-game', 'false');
+}
+
 // inicialização do sistema                                                     //
 function initializeSystem() {
     verifyConfig();
+    startGame();
     generateNumbers();
     displayInitialNumbers();
     initializeButtons();
