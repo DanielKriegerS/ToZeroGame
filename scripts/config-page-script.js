@@ -15,10 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     actualizeNumbersQuantity();
 
-    if (localStorage.getItem('remember-name') == 'false') {
-        localStorage.setItem('username', '');
-    }
-
     // Adição de listeners
     begin_btn.addEventListener('click', () => {
         if (validateName() && validateQuantity()) {
