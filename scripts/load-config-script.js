@@ -3,12 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // carga de elementos do DOM
     const numbersContainer = document.getElementById('numbers');
 
-    // variáveis globais
-    let defaultQuantity = 3;
-
     // carga de informações  salvas
     const quantityOfNumbers = localStorage.getItem('quantity');
-    const username = localStorage.getItem('username');
     
     // fábrica de números aleatórios entre 1 e 9                                    //
     function randomNumber() {
