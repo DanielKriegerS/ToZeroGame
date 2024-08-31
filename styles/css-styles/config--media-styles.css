@@ -1,3 +1,15 @@
-
+@charset "UTF-8";
+/* Importando variáveis */
+/* global variables */
+/*clock variables*/
+/* Media query para dispositivos menores que 768px */
+@media (max-width: 768px) {
+  #configurations {
+    border: none;
+  }
+  #configurations > h3 {
+    text-align: center;
+  }
+}
 
 /*# sourceMappingURL=config--media-styles.css.map */
