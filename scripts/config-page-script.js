@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function plusOneNumber () {
         let actualQuantity = parseInt(localStorage.getItem('quantity'), 10);
 
-        if(actualQuantity < 5) {
+        if(actualQuantity < 8) {
             actualQuantity += 1;
             localStorage.setItem('quantity', actualQuantity);
             actualizeNumbersQuantity();
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         }
 
-        if (actualQuantity > 5) {
+        if (actualQuantity > 8) {
             localStorage.setItem('quantity', 3);
             window.alert('Como você alterou isso?');
             return false;
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function verifyLimit() {
         const actualQuantity = parseInt(localStorage.getItem('quantity'), 10);
 
-        if (actualQuantity >= 5) {
+        if (actualQuantity >= 8) {
             plus.classList.add('limit');
         } else {
             plus.classList.remove('limit');
