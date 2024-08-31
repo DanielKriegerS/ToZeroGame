@@ -255,22 +255,13 @@ function checkEndGame() {
 
     switch(status) {
         case 1:
-            window.alert("Parabéns, você venceu!");
-            localStorage.setItem('ended-game', 'true'); 
-            initializeSystem();
-            changeHeader(1);
+            finishGame(1);
             break;
         case 2:
-            window.alert("Que pena, foi por pouco!");
-            localStorage.setItem('ended-game', 'true');
-            initializeSystem();
-            changeHeader(1);
+            finishGame(2);
             break;
         case 3:
-            window.alert("Que pena, o tempo acabou!");
-            localStorage.setItem('ended-game', 'true');
-            initializeSystem();
-            changeHeader(1);
+            finishGame(3);
             break;
         default:
             localStorage.setItem('ended-game', 'false');
@@ -313,6 +304,26 @@ function restartGame() {
     });
 }
 
+// Finaliza o jogo
+function finishGame(context) {
+    if (context == 1) {
+        window.alert("Parabéns, você venceu!");
+    }
+
+    if (context == 2) {
+        window.alert("Que pena, foi por pouco!");
+    }
+
+    if (context == 3) {
+        window.alert("Que pena, o tempo acabou!");
+    }
+
+    resetSelecteds();
+    localStorage.setItem('ended-game', 'true');
+    initializeSystem();
+    changeHeader(1);
+}
+
 //*                             FUNÇÕES DE LIMPEZA                             *//
 //*                                                                            *//   
 // Limpeza de campos
@@ -337,6 +348,12 @@ function cleanRandom(index) {
         }
     }
 
+}
+
+// Reinicia os campos selecionados pelo fim de jogo
+function resetSelecteds() {
+    removeActiveClassesFromButtons();
+    clearFields();
 }
 
 // Reseta os números aleatórios sempre antes de adicionar novos
