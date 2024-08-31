@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let username = '';
     let isToRememberName;
     let isClockActive;
-    let endedGame;
 
     let timer = 60;
     localStorage.setItem('max-timer', timer);
@@ -37,7 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTimer() {
-        if (timer < 0 || endedGame == true) {
+        let endedGame = localStorage.getItem('ended-game');
+        let isEnded = endedGame == 'true' ? true:false;
+        if (timer < 0 || isEnded) {
             timer = parseInt(localStorage.getItem('max-timer'));
             localStorage.setItem('ended-game', 'false');
             seconds = 0;

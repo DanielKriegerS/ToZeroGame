@@ -256,7 +256,7 @@ function checkEndGame() {
     switch(status) {
         case 1:
             window.alert("Parabéns, você venceu!");
-            localStorage.setItem('ended-game', 'true');
+            localStorage.setItem('ended-game', 'true'); 
             initializeSystem();
             changeHeader(1);
             break;
@@ -285,15 +285,23 @@ function verifyEndTimer() {
     if (actualTime <= 0) {
         endedGame = true;
         checkEndGame();
+        time.textContent = parseInt(localStorage.getItem('max-timer'));
+        return;
     }
     
-    endedGame = false;
+}
+
+setInterval(verifyTimer, 1000);
+
+function verifyTimer() {
+    if (!endedGame) {
+        verifyEndTimer();
+    } 
 }
 
 // Reinicia o jogo
 function restartGame() {
     removeActiveClassesFromButtons();
-    startGame();
 
     let i = 0;
     randomNumbers.forEach(button => {
@@ -433,23 +441,17 @@ function initializeHeader() {
     }
 }
 
-setInterval(verifyEndTimer, 1000);
-
 // inicializa os botões                                                         //
 function initializeButtons() {
     initializeOperations();
     initializeNumbers();
 }
 
-// inicializa o jogo
-function startGame() {
-    localStorage.setItem('ended-game', 'false');
-}
-
 // inicialização do sistema                                                     //
 function initializeSystem() {
+    endedGame = false;
+
     verifyConfig();
-    startGame();
     generateNumbers();
     displayInitialNumbers();
     initializeButtons();
